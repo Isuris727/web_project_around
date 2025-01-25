@@ -1,0 +1,34 @@
+.profile {
+  display: flex;
+}
+
+.profile__img {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+.profile__info {
+  display: grid;
+  grid-column: 1fr auto;
+}
+/* .profile__name {
+}
+
+.profile__about-me {
+} */
+
+.profile__popup {
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+}
+
+.profile__popup_opened {
+  display: flex;
+}
+
+/* .profile__btn {
+  boton agregar
+  background-color: aquamarine;
+}
+*/

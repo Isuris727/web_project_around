@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,26 +21,55 @@
       <header class="header page__header">
         <img
           class="header__logo"
-          alt="Around the U.S. logo"
+          alt="Logo Around the U.S."
           src="./images/Vector_around.png"
         />
       </header>
       <main class="main page__main">
         <section class="profile">
-          <img class="profile__img" />
+          <img
+            class="profile__img"
+            alt="Imagen de perfil"
+            src="./images/Avatar.png"
+          />
           <div class="profile__info">
-            <p class="profile__name"></p>
-            <p class="profile__about-me"></p>
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="button button_type_edit" type="button">
+              <img
+                class="button__img"
+                alt="editar"
+                src="./images/Vector_edit.png"
+              />
+            </button>
+            <p class="profile__about-me">Explorador</p>
           </div>
-          <button class="profile__add-btn"></button>
+
           <div class="profile__popup popup">
-            <button class="popup__close-btn"></button>
-            <form class="popup__form form">
-              <input class="form__input form__input_type_name" />
-              <input class="form__input form__input_type_about-me" />
-              <button class="form__submit-btn"></button>
-            </form>
+            <div class="popup__container">
+              <button class="button button_type_close" type="button">
+                <img alt="Cerrar" src="./images/Icon_close.png" />
+              </button>
+              <form class="popup__form form">
+                <input
+                  class="form__input form__input_type_name"
+                  type="text"
+                  required
+                  placeholder="Nombre"
+                />
+                <input
+                  class="form__input form__input_type_about-me"
+                  type="text"
+                  placeholder="Acerca de mí"
+                />
+                <button class="button button_type_submit" type="submit">
+                  Guardar
+                </button>
+              </form>
+            </div>
           </div>
+          <button class="profile__btn button button_type_add" type="button">
+            <img alt="Agregar" src="./images/Vector_add.png" />
+          </button>
         </section>
         <section class="elements"></section>
       </main>
