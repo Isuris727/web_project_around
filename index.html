@@ -27,48 +27,55 @@
       </header>
       <main class="main page__main">
         <section class="profile">
-          <img
-            class="profile__img"
-            alt="Imagen de perfil"
-            src="./images/Avatar.png"
-          />
-          <div class="profile__info">
-            <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="button button_type_edit" type="button">
-              <img
-                class="button__img"
-                alt="editar"
-                src="./images/Vector_edit.png"
-              />
-            </button>
-            <p class="profile__about-me">Explorador</p>
-          </div>
-
-          <div class="profile__popup popup">
-            <div class="popup__container">
-              <button class="button button_type_close" type="button">
-                <img alt="Cerrar" src="./images/Icon_close.png" />
+          <div class="profile__container">
+            <img
+              class="profile__img"
+              alt="Imagen de perfil"
+              src="./images/Avatar.png"
+            />
+            <div class="profile__info">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="button button_type_edit" type="button">
+                <img
+                  class="button__img button__img_type_edit"
+                  alt="editar"
+                  src="./images/Vector_edit.png"
+                />
               </button>
-              <form class="popup__form form">
-                <input
-                  class="form__input form__input_type_name"
-                  type="text"
-                  required
-                  placeholder="Nombre"
-                />
-                <input
-                  class="form__input form__input_type_about-me"
-                  type="text"
-                  placeholder="Acerca de mí"
-                />
-                <button class="button button_type_submit" type="submit">
-                  Guardar
+              <p class="profile__about-me">Explorador</p>
+            </div>
+
+            <div class="profile__popup popup">
+              <div class="popup__container">
+                <button class="button button_type_close" type="button">
+                  <img alt="Cerrar" src="./images/Icon_close.png" />
                 </button>
-              </form>
+                <form class="popup__form form">
+                  <h2 form__title>Editar perfil</h2>
+                  <input
+                    class="form__input form__input_type_name"
+                    type="text"
+                    required
+                    placeholder="Nombre"
+                  />
+                  <input
+                    class="form__input form__input_type_about-me"
+                    type="text"
+                    placeholder="Acerca de mí"
+                  />
+                  <button class="button button_type_submit" type="submit">
+                    Guardar
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-          <button class="profile__btn button button_type_add" type="button">
-            <img alt="Agregar" src="./images/Vector_add.png" />
+          <button class="button button_type_add" type="button">
+            <img
+              class="button__img button__img_type_add"
+              alt="Agregar"
+              src="./images/Vector_add.png"
+            />
           </button>
         </section>
         <section class="elements"></section>

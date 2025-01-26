@@ -1,5 +1,13 @@
 .profile {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__container {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0 50px;
 }
 
 .profile__img {
@@ -9,26 +17,55 @@
 }
 .profile__info {
   display: grid;
-  grid-column: 1fr auto;
+  align-items: center;
+  grid-template-columns: repeat(2, auto);
+  gap: 16px 18px;
+  text-wrap: pretty;
 }
-/* .profile__name {
+.profile__name {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 46px;
+  margin: 0;
+  display: inline-block;
 }
 
 .profile__about-me {
-} */
+  font-size: 18px;
+  line-height: 1.21;
+  margin: 0;
+  font-weight: 400;
+}
 
 .profile__popup {
-  /* width: 100%;
-  height: 100%; */
-  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* display: none; */
 }
 
 .profile__popup_opened {
   display: flex;
 }
 
-/* .profile__btn {
-  boton agregar
-  background-color: aquamarine;
+@media screen and (max-width: 540px) {
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .profile__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile__name {
+    font-size: 22px;
+    line-height: 26.63px;
+  }
+  .profile__about-me {
+    font-size: 14px;
+  }
 }
-*/
