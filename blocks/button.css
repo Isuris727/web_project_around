@@ -5,7 +5,9 @@
   box-sizing: content-box;
   padding: 0;
 }
-
+.button:hover {
+  cursor: pointer;
+}
 .button_type_edit {
   width: 24px;
   height: 24px;
@@ -15,6 +17,27 @@
   height: 50px;
   border: 2px solid #fff;
   box-sizing: border-box;
+}
+
+.button__type_close {
+  position: relative;
+  width: 41.7px;
+  height: 41.7px;
+  /* top: 15px; */
+  left: 430px;
+  border: none;
+}
+.button_type_submit {
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  width: 100%;
+  max-width: 358px;
+  height: 100%;
+  max-height: 50.15px;
+}
+
+.button_type_submit:hover {
+  opacity: 80%;
 }
 
 .button__img_type_edit {
@@ -27,6 +50,9 @@
   min-width: 18px;
   max-width: 22px;
 }
+.button__img_type_close {
+  width: 100%;
+}
 
 @media screen and (max-width: 540px) {
   .button_type_edit {
@@ -35,5 +61,15 @@
   }
   .button_type_add {
     width: 282px;
+  }
+
+  .button__type_close {
+    top: -23.62px;
+    left: 200px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .button__type_close {
+    left: 120px;
   }
 }
