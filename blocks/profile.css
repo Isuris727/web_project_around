@@ -6,6 +6,7 @@
 
 .profile__container {
   display: flex;
+  align-items: center;
   gap: 30px;
   margin: 40px 0 50px;
 }
@@ -16,9 +17,8 @@
   width: 120px;
 }
 .profile__info {
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(2, auto);
+  display: flex;
+  flex-direction: column;
   gap: 16px 18px;
   text-wrap: pretty;
 }
@@ -27,7 +27,6 @@
   font-weight: 500;
   line-height: 46px;
   margin: 0;
-  display: inline-block;
 }
 
 .profile__about-me {

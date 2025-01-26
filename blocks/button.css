@@ -1,5 +1,6 @@
 .button {
   background-color: transparent;
+  font-size: 1rem;
   border: 1px solid #fff;
   width: 100%;
   box-sizing: content-box;
