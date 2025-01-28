@@ -7,5 +7,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 17px 20px;
 }
-.elements__card {
+/* .elements__card {
+} */
+@media screen and (max-width: 540px) {
+  .elements__cards {
+    margin: 36px auto;
+    grid-template-columns: 1fr;
+  }
+  .elements__card {
+    margin: auto;
+  }
 }

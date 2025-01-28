@@ -41,6 +41,10 @@
   opacity: 80%;
 }
 
+.button_active {
+  display: none;
+}
+
 .button__img_type_edit {
   width: 41.667%;
   min-width: 7.5px;
