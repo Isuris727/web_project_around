@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-.button__type_close {
+.button_type_close {
   position: relative;
   width: 41.7px;
   height: 41.7px;
@@ -68,13 +68,13 @@
     width: 282px;
   }
 
-  .button__type_close {
+  .button_type_close {
     top: -23.62px;
     left: 200px;
   }
 }
 @media screen and (max-width: 435px) {
-  .button__type_close {
+  .button_type_close {
     left: 120px;
   }
 }
