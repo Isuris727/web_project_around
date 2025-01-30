@@ -7,7 +7,6 @@ let buttonClosePopup = profilePopup.querySelector(".button_type_close");
 let formPopup = profilePopup.querySelector(".form");
 let formInputName = profilePopup.querySelector(".form__input_type_name");
 let formInputAboutme = profilePopup.querySelector(".form__input_type_about-me");
-let buttonSubmitForm = formPopup.querySelector(".button_type_submit");
 
 function handleOpenPopup() {
   profilePopup.classList.add("profile__popup_opened");
