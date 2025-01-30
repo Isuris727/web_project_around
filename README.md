@@ -2,7 +2,7 @@
 
 ## Tripleten web_project_around
 
-El proyecto Around the U.S. es un proyecto de práctica de JavaScript del programa de desarrollo web de Triple Ten, esta compuesto varias partes, la primera parte fue desarrollada como proyecto del sprint 7 (versión actual), con algunas funciones. Se prevee actualizarlo posteriormente para incluir nuevas funcionalidades.
+El proyecto Around the U.S. es un proyecto de práctica de JavaScript del programa de desarrollo web de Triple Ten, será creado en varias etapas, la primera etapa fue desarrollada como proyecto del sprint 7 (versión actual), con funcionalidad de cambiar textos de perfil. Se prevee actualizarlo posteriormente para incluir nuevas funcionalidades.
 Fue realizado a partir de un diseño de figma y desplegado en Github Pages.
 
 ### Caracteristicas del proyecto
