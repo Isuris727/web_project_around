@@ -20,6 +20,8 @@ Fue realizado utilizando:
 
 ![HTML5-logo](./images/html-5-logo.svg)
 ![CSS3-logo](./images/CSS3_logo_and_wordmark.svg)
-![JavaScript-logo](./images/javascript%20%20Logo.svg)
+![JavaScript-logo](./images/javascript-Logo.svg)
 
 ### Link de la página desplegada
+
+https://isuris727.github.io/web_project_around/
