@@ -34,8 +34,8 @@
               src="./images/Avatar.png"
             />
             <div class="profile__info">
-              <h1 class="profile__name">
-                Jacques Cousteau
+              <div>
+                <h1 class="profile__name">Jacques Cousteau</h1>
                 <button class="button button_type_edit" type="button">
                   <img
                     class="button__img button__img_type_edit"
@@ -43,7 +43,7 @@
                     src="./images/Vector_edit.png"
                   />
                 </button>
-              </h1>
+              </div>
               <p class="profile__about-me">Explorador</p>
             </div>
 
@@ -61,13 +61,14 @@
                   <input
                     class="form__input form__input_type_name"
                     type="text"
-                    required
                     placeholder="Nombre"
+                    value="Jacques Cousteau"
                   />
                   <input
                     class="form__input form__input_type_about-me"
                     type="text"
                     placeholder="Acerca de mí"
+                    value="Explorador"
                   />
                   <button class="button button_type_submit" type="submit">
                     Guardar
