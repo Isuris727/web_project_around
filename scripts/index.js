@@ -11,7 +11,6 @@ let buttonSubmitForm = formPopup.querySelector(".button_type_submit");
 
 function handleOpenPopup() {
   profilePopup.classList.add("profile__popup_opened");
-  console.log("popup abierto");
 }
 
 function closePopup() {
@@ -28,7 +27,6 @@ function handleEditProfileInfo(event) {
 buttonEditProfile.addEventListener("click", handleOpenPopup);
 buttonClosePopup.addEventListener("click", function () {
   closePopup();
-  console.log("popup cerrado con closepopup");
 });
 
-buttonSubmitForm.addEventListener("submit", handleEditProfileInfo);
+formPopup.addEventListener("submit", handleEditProfileInfo);
