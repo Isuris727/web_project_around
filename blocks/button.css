@@ -49,6 +49,16 @@
   opacity: 80%;
 }
 
+.button_type_trash {
+  border: none;
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  z-index: 2;
+}
+
 .button_active {
   display: none;
 }
