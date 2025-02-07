@@ -12,7 +12,17 @@ const formInputAboutme = profilePopup.querySelector(
 );
 const elementsCards = document.querySelector(".elements__cards");
 const cardTemplate = document.querySelector(".elements__card-template");
-const initialCardsData = [{ name: "", src: "" }];
+const initialCardsData = [
+  { name: "Lago di Braies", src: "./images/image-lago-di-braies.png" },
+  { name: "Lago louise", src: "./images/image_lago-louise.png" },
+  { name: "Latemar", src: "./images/image-latemar.png" },
+  { name: "Montañas Calvas", src: "./images/image_montanas-calvas.png" },
+  {
+    name: "Parque Nacional Vanois",
+    src: "./images/image_vanois-national-park.png",
+  },
+  { name: "Valle de Yosemite", src: "./images/image_yosemite-valley.png" },
+];
 
 function handleOpenPopup() {
   profilePopup.classList.add("profile__popup_opened");
@@ -39,8 +49,6 @@ function createCard(name, src) {
   cardImg.src = src;
   cardName.textContent = name;
 
-  console.log("aqui esta la carta");
-
   elementsCards.prepend(card);
 }
 
@@ -53,10 +61,15 @@ buttonClosePopup.addEventListener("click", function () {
   closePopup();
 });
 
-// buttonAddCard.addEventListener("Click", function () {
-//   createCard();
-// });
+buttonAddCard.addEventListener("click", function () {
+  createCard();
+});
 
 formPopup.addEventListener("submit", handleEditProfileInfo);
 
-createCard();
+createCard(initialCardsData[0].name, initialCardsData[0].src);
+createCard(initialCardsData[1].name, initialCardsData[1].src);
+createCard(initialCardsData[2].name, initialCardsData[2].src);
+createCard(initialCardsData[3].name, initialCardsData[3].src);
+createCard(initialCardsData[4].name, initialCardsData[4].src);
+createCard(initialCardsData[5].name, initialCardsData[5].src);
