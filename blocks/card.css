@@ -1,6 +1,5 @@
 .card {
-  /* background-color: rgba(255, 255, 255, 1); */
-  background-color: gray;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
   overflow: hidden;
   display: grid;
@@ -9,6 +8,15 @@
   max-width: 282px;
   position: relative;
 }
+
+.card_dislike {
+  display: none;
+}
+
+.card_like {
+  display: none;
+}
+
 .card__img {
   width: 100%;
   max-height: 282px;
@@ -23,12 +31,4 @@
   display: inline;
   text-wrap: nowrap;
   margin: 25px 0 31px 21px;
-}
-
-.card__btn {
-  width: 21px;
-  height: 19px;
-  grid-column: 2/3;
-  justify-self: end;
-  margin-right: 18px;
 }

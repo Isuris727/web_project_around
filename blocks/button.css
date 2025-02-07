@@ -49,7 +49,7 @@
   opacity: 80%;
 }
 
-.button_type_trash {
+.button_type_delete {
   border: none;
   width: 18px;
   height: 19.3px;
@@ -59,11 +59,16 @@
   z-index: 2;
 }
 
-.button_active {
-  display: none;
+.button_type_like {
+  width: 21px;
+  height: 19px;
+  grid-column: 2/3;
+  justify-self: end;
+  margin-right: 18px;
 }
 
 /* .button_img{} */
+
 .button__img:hover {
   opacity: 0.6;
 }

@@ -87,22 +87,26 @@
         </section>
         <section class="elements">
           <div class="elements__cards"></div>
-          <template>
+          <template class="elements__card-template" id="card-template">
             <div class="elements__card card">
               <img
-                class="button button_type_trash"
-                alt="trash-can"
+                class="button button_type_delete"
+                alt="delete button"
                 src="./images/icon_Trash.svg"
               />
-              <img class="card__img" alt="" src="./images/image-latemar.png" />
+              <img
+                class="card__img"
+                alt="Fotografia agregada"
+                src="./images/image-latemar.png"
+              />
               <p class="card__name"></p>
               <img
-                class="card__btn button button_inactive"
+                class="button button_type_like"
                 alt="Me gusta"
                 src="images/Vector_like_inactive.png"
               />
               <img
-                class="card__btn button button_active"
+                class="button button_type_like card_dislike"
                 alt="Me gusta"
                 src="images/Vector_like_active.png"
               />
