@@ -7,6 +7,11 @@
   left: 0;
   z-index: 2;
 }
+
+.popup_opened {
+  display: flex;
+}
+
 .popup__container {
   margin: auto;
 }

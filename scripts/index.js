@@ -2,14 +2,16 @@ const profileInfo = document.querySelector(".profile__info");
 const profilePopup = document.querySelector(".profile__popup");
 const profileName = document.querySelector(".profile__name");
 const profileAboutMe = document.querySelector(".profile__about-me");
+const popupForm = document.querySelector(".form");
 const buttonEditProfile = profileInfo.querySelector(".button_type_edit");
-const buttonClosePopup = profilePopup.querySelector(".button_type_close");
+const buttonCloseProfilePopup =
+  profilePopup.querySelector(".button_type_close");
 const buttonAddCard = document.querySelector(".button_type_add");
-const formPopup = profilePopup.querySelector(".form");
 const formInputName = profilePopup.querySelector(".form__input_type_name");
 const formInputAboutme = profilePopup.querySelector(
   ".form__input_type_about-me"
 );
+const elementsPopup = document.querySelector(".elements__popup");
 const elementsCards = document.querySelector(".elements__cards");
 const cardTemplate = document.querySelector(".elements__card-template");
 const initialCardsData = [
@@ -25,11 +27,13 @@ const initialCardsData = [
 ];
 
 function handleOpenPopup() {
-  profilePopup.classList.add("profile__popup_opened");
+  const activePopup = popupForm.closest(".popup");
+  activePopup.classList.add("popup_opened");
 }
 
 function closePopup() {
-  profilePopup.classList.remove("profile__popup_opened");
+  const activePopup = popupForm.closest(".popup");
+  activePopup.classList.remove("popup_opened");
 }
 
 function handleEditProfileInfo(event) {
@@ -72,7 +76,7 @@ function createCard(name, src) {
 }
 
 buttonEditProfile.addEventListener("click", handleOpenPopup);
-buttonClosePopup.addEventListener("click", function () {
+buttonCloseProfilePopup.addEventListener("click", function () {
   closePopup();
 });
 
@@ -80,7 +84,7 @@ buttonAddCard.addEventListener("click", function () {
   createCard();
 });
 
-formPopup.addEventListener("submit", handleEditProfileInfo);
+popupForm.addEventListener("submit", handleEditProfileInfo);
 
 createCard(initialCardsData[0].name, initialCardsData[0].src);
 createCard(initialCardsData[1].name, initialCardsData[1].src);

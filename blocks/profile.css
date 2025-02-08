@@ -58,10 +58,6 @@
   display: none;
 }
 
-.profile__popup_opened {
-  display: flex;
-}
-
 @media screen and (max-width: 880px) {
   .profile__info {
     max-width: 360px;
