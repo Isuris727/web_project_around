@@ -44,7 +44,7 @@ function createCard(name, src) {
   const cardImg = card.querySelector(".card__img");
   const cardName = card.querySelector(".card__name");
   const buttonDeleteCard = card.querySelector(".button_type_delete");
-  const buttonLikeCard = card.querySelectorAll(".button_type_like");
+  const buttonLikeCard = card.querySelector(".button_type_like");
 
   cardImg.src = src;
   cardName.textContent = name;
@@ -54,8 +54,21 @@ function createCard(name, src) {
     cardToDelete.remove();
   }
 
+  function likeCard() {
+    if (buttonLikeCard.classList.contains("button_type_like_inactive")) {
+      buttonLikeCard.classList.remove("button_type_like_inactive");
+      buttonLikeCard.classList.add("button_type_like_active");
+      buttonLikeCard.src = "./images/Vector_like_active.png";
+    } else {
+      buttonLikeCard.classList.add("button_type_like_inactive");
+      buttonLikeCard.classList.remove("button_type_like_active");
+      buttonLikeCard.src = "./images/Vector_like_inactive.png";
+    }
+  }
+
   elementsCards.prepend(card);
   buttonDeleteCard.addEventListener("click", deleteCard);
+  buttonLikeCard.addEventListener("click", likeCard);
 }
 
 buttonEditProfile.addEventListener("click", handleOpenPopup);
