@@ -44,17 +44,19 @@ function createCard(name, src) {
   const cardImg = card.querySelector(".card__img");
   const cardName = card.querySelector(".card__name");
   const buttonDeleteCard = card.querySelector(".button_type_delete");
-  const buttonlikeCard = card.querySelectorAll(".button_type_like");
+  const buttonLikeCard = card.querySelectorAll(".button_type_like");
 
   cardImg.src = src;
   cardName.textContent = name;
 
+  function deleteCard() {
+    const cardToDelete = buttonDeleteCard.closest(".card");
+    cardToDelete.remove();
+  }
+
   elementsCards.prepend(card);
+  buttonDeleteCard.addEventListener("click", deleteCard);
 }
-
-function likeCard() {}
-
-function deleteCard() {}
 
 buttonEditProfile.addEventListener("click", handleOpenPopup);
 buttonClosePopup.addEventListener("click", function () {
