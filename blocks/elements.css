@@ -7,6 +7,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 17px 20px;
 }
+
+.elements__popup {
+  display: none;
+}
+
+.elements__popup_opened {
+  display: flex;
+}
+
 /* .elements__card {
 } */
 @media screen and (max-width: 540px) {

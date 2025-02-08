@@ -86,7 +86,35 @@
           </button>
         </section>
         <section class="elements">
+          <div class="elements__popup popup">
+            <div class="popup__container">
+              <button class="button button_type_close" type="button">
+                <img
+                  class="button__img button__img_type_close"
+                  alt="Cerrar"
+                  src="./images/Icon_close.png"
+                />
+              </button>
+              <form class="popup__form form">
+                <h2 class="form__title">Nuevo lugar</h2>
+                <input
+                  class="form__input form__input_type_name"
+                  type="text"
+                  placeholder="titulo"
+                />
+                <input
+                  class="form__input form__input_type_about-me"
+                  type="text"
+                  placeholder="Enlace del lugar"
+                />
+                <button class="button button_type_submit" type="submit">
+                  crear
+                </button>
+              </form>
+            </div>
+          </div>
           <div class="elements__cards"></div>
+
           <template class="elements__card-template" id="card-template">
             <div class="elements__card card">
               <img
