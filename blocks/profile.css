@@ -54,9 +54,9 @@
   text-wrap: nowrap;
 }
 
-.profile__popup {
+/* .profile__popup {
   display: none;
-}
+} */
 
 @media screen and (max-width: 880px) {
   .profile__info {

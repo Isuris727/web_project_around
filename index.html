@@ -56,16 +56,17 @@
                     src="./images/Icon_close.png"
                   />
                 </button>
-                <form class="popup__form form">
+                <form class="profile__form popup__form form">
                   <h2 class="form__title">Editar perfil</h2>
                   <input
                     class="form__input form__input_type_name"
                     type="text"
                     placeholder="Nombre"
                     value="Jacques Cousteau"
+                    required
                   />
                   <input
-                    class="form__input form__input_type_about-me"
+                    class="form__input form__input_type_about"
                     type="text"
                     placeholder="Acerca de mí"
                     value="Explorador"
@@ -95,17 +96,19 @@
                   src="./images/Icon_close.png"
                 />
               </button>
-              <form class="popup__form form">
+              <form class="elements__form popup__form form">
                 <h2 class="form__title">Nuevo lugar</h2>
                 <input
                   class="form__input form__input_type_name"
                   type="text"
                   placeholder="titulo"
+                  required
                 />
                 <input
-                  class="form__input form__input_type_about-me"
+                  class="form__input form__input_type_about"
                   type="text"
                   placeholder="Enlace del lugar"
+                  required
                 />
                 <button class="button button_type_submit" type="submit">
                   crear

@@ -8,13 +8,13 @@
   gap: 17px 20px;
 }
 
-.elements__popup {
-  display: none;
-}
-
-.elements__popup_opened {
+/* .elements__popup {
   display: flex;
-}
+} */
+
+/* .elements__popup_opened {
+  display: flex;
+} */
 
 /* .elements__card {
 } */
