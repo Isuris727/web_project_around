@@ -8,16 +8,12 @@
   gap: 17px 20px;
 }
 
-/* .elements__popup {
-  display: flex;
-} */
+@media screen and (max-width: 750px) {
+  .elements__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-/* .elements__popup_opened {
-  display: flex;
-} */
-
-/* .elements__card {
-} */
 @media screen and (max-width: 540px) {
   .elements__cards {
     margin: 36px auto 50px;
