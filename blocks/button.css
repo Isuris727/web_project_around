@@ -32,7 +32,8 @@
   position: relative;
   width: 41.7px;
   height: 41.7px;
-  left: 430px;
+  left: 40px;
+  align-self: flex-end;
   border: none;
 }
 
@@ -56,7 +57,6 @@
   position: absolute;
   right: 15px;
   top: 18px;
-  /* z-index: 2; */
 }
 
 .button_type_like {
@@ -77,11 +77,13 @@
   width: 41.667%;
   min-width: 7.5px;
   max-width: 10px;
+  color: #fff;
 }
 
 .button__img_type_add {
   min-width: 18px;
   max-width: 22px;
+  color: #fff;
 }
 .button__img_type_close {
   width: 100%;

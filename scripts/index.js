@@ -24,15 +24,15 @@ const buttonAddCard = document.querySelector(".button_type_add");
 const elementsPopupForm = document.querySelector(".elements__form");
 // ----- General
 const initialCardsData = [
-  { name: "Lago di Braies", src: "./images/image-lago-di-braies.png" },
-  { name: "Lago louise", src: "./images/image_lago-louise.png" },
-  { name: "Latemar", src: "./images/image-latemar.png" },
-  { name: "Montañas Calvas", src: "./images/image_montanas-calvas.png" },
+  { name: "Lago di Braies", src: "./images/image-lago-di-braies.jpg" },
+  { name: "Lago louise", src: "./images/image_lago-louise.jpg" },
+  { name: "Latemar", src: "./images/image-latemar.jpg" },
+  { name: "Montañas Calvas", src: "./images/image_montanas-calvas.jpg" },
   {
     name: "Parque Nacional Vanois",
-    src: "./images/image_vanois-national-park.png",
+    src: "./images/image_vanois-national-park.jpg",
   },
-  { name: "Valle de Yosemite", src: "./images/image_yosemite-valley.png" },
+  { name: "Valle de Yosemite", src: "./images/image_yosemite-valley.jpg" },
 ];
 
 function handleOpenPopupProfile() {
@@ -45,6 +45,7 @@ function closePopupProfile() {
 
 function handleOpenPopupAddCard() {
   elementsPopup.classList.add("popup_opened");
+  elementsPopupForm.reset();
 }
 
 function closePopupAddCard() {
@@ -59,12 +60,12 @@ function handleEditProfileInfo(evt) {
 }
 
 function handleAddCard(evt) {
-  createCard(formInputPlaceName.value, formInputLink.value);
+  card(formInputPlaceName.value, formInputLink.value);
   evt.preventDefault();
   closePopupAddCard();
 }
 
-function createCard(name, src) {
+function card(name, src) {
   const card = cardTemplate.cloneNode(true).content.querySelector(".card");
   const cardImg = card.querySelector(".card__img");
   const cardName = card.querySelector(".card__name");
@@ -90,6 +91,7 @@ function createCard(name, src) {
       buttonLikeCard.src = "./images/Vector_like_inactive.png";
     }
   }
+  function popupImage() {}
 
   elementsCards.prepend(card);
   buttonDeleteCard.addEventListener("click", deleteCard);
@@ -101,7 +103,7 @@ function createCard(name, src) {
 buttonEditProfile.addEventListener("click", handleOpenPopupProfile);
 profilePopupForm.addEventListener("submit", handleEditProfileInfo);
 
-buttonAddCard.addEventListener("click", () => handleOpenPopupAddCard());
+buttonAddCard.addEventListener("click", handleOpenPopupAddCard);
 elementsPopupForm.addEventListener("submit", handleAddCard);
 
 buttonCloseProfilePopup.addEventListener("click", () => closePopupProfile());
@@ -109,9 +111,9 @@ buttonCloseAddCardPopup.addEventListener("click", () => closePopupAddCard());
 
 // ----- Valores iniciales
 
-createCard(initialCardsData[0].name, initialCardsData[0].src);
-createCard(initialCardsData[1].name, initialCardsData[1].src);
-createCard(initialCardsData[2].name, initialCardsData[2].src);
-createCard(initialCardsData[3].name, initialCardsData[3].src);
-createCard(initialCardsData[4].name, initialCardsData[4].src);
-createCard(initialCardsData[5].name, initialCardsData[5].src);
+card(initialCardsData[0].name, initialCardsData[0].src);
+card(initialCardsData[1].name, initialCardsData[1].src);
+card(initialCardsData[2].name, initialCardsData[2].src);
+card(initialCardsData[3].name, initialCardsData[3].src);
+card(initialCardsData[4].name, initialCardsData[4].src);
+card(initialCardsData[5].name, initialCardsData[5].src);

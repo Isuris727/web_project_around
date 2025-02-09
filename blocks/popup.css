@@ -15,10 +15,24 @@
 
 .popup__container {
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .popup__form {
   margin: auto;
+}
+
+.popup__img {
+  max-width: 75vw;
+  max-height: 75vh;
+  display: block;
+}
+
+.popup__card-name {
+  font-size: 12px;
+  line-height: 1.21;
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 320px) {

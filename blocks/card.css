@@ -24,3 +24,7 @@
   text-wrap: nowrap;
   margin: 25px 0 31px 21px;
 }
+
+.card__popup {
+  display: none;
+}
