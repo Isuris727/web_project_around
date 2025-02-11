@@ -56,16 +56,17 @@
                     src="./images/Icon_close.png"
                   />
                 </button>
-                <form class="popup__form form">
+                <form class="profile__form popup__form form">
                   <h2 class="form__title">Editar perfil</h2>
                   <input
                     class="form__input form__input_type_name"
                     type="text"
                     placeholder="Nombre"
                     value="Jacques Cousteau"
+                    required
                   />
                   <input
-                    class="form__input form__input_type_about-me"
+                    class="form__input form__input_type_about"
                     type="text"
                     placeholder="Acerca de mí"
                     value="Explorador"
@@ -86,116 +87,65 @@
           </button>
         </section>
         <section class="elements">
-          <div class="elements__cards">
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de Valle de Yosemite"
-                src="./images/image_yosemite-valley.png"
-              />
-              <p class="card__name">Valle de Yosemite</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
-            </div>
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de lago Louise"
-                src="./images/image_lago-louise.png"
-              />
-              <p class="card__name">Lago louise</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
-            </div>
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de Montañas Calvas"
-                src="./images/image_montanas-calvas.png"
-              />
-              <p class="card__name">Montañas Calvas</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
-            </div>
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de latemar"
-                src="./images/image-latemar.png"
-              />
-              <p class="card__name">Latemar</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
-            </div>
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de Parque Nacional Vanois"
-                src="./images/image_vanois-national-park.png"
-              />
-              <p class="card__name">Parque Nacional Vanois</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
-            </div>
-            <div class="elements__card card">
-              <img
-                class="card__img"
-                alt="Foto de lago di Braies"
-                src="./images/image-lago-di-braies.png"
-              />
-              <p class="card__name">Lago di Braies</p>
-              <img
-                class="card__btn button button_inactive"
-                alt="Me gusta"
-                src="images/Vector_like_inactive.png"
-              />
-              <img
-                class="card__btn button button_active"
-                alt="Me gusta"
-                src="images/Vector_like_active.png"
-              />
+          <div class="elements__popup popup">
+            <div class="popup__container">
+              <button class="button button_type_close" type="button">
+                <img
+                  class="button__img button__img_type_close"
+                  alt="Cerrar"
+                  src="./images/Icon_close.png"
+                />
+              </button>
+              <form class="elements__form popup__form form">
+                <h2 class="form__title">Nuevo lugar</h2>
+                <input
+                  class="form__input form__input_type_name"
+                  type="text"
+                  placeholder="titulo"
+                  required
+                />
+                <input
+                  class="form__input form__input_type_about"
+                  type="text"
+                  placeholder="Enlace del lugar"
+                  required
+                />
+                <button class="button button_type_submit" type="submit">
+                  crear
+                </button>
+              </form>
             </div>
           </div>
+          <div class="elements__cards"></div>
+          <template class="elements__card-template" id="card-template">
+            <div class="elements__card card">
+              <img
+                class="button button_type_delete"
+                alt="delete button"
+                src="./images/icon_Trash.svg"
+              />
+              <img class="card__img" alt="Fotografia agregada" src="" />
+              <p class="card__name"></p>
+              <img
+                class="button button_type_like button_type_like_inactive"
+                alt="Me gusta"
+                src="./images/Vector_like_inactive.png"
+              />
+              <div class="card__popup popup">
+                <div class="popup__container">
+                  <button class="button button_type_close" type="button">
+                    <img
+                      class="button__img button__img_type_close"
+                      alt="Cerrar"
+                      src="./images/Icon_close.png"
+                    />
+                  </button>
+                  <img class="popup__img" alt="" src="" />
+                  <p class="popup__card-name"></p>
+                </div>
+              </div>
+            </div>
+          </template>
         </section>
       </main>
       <footer class="footer page__footer">

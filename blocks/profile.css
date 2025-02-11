@@ -38,7 +38,7 @@
   font-size: 42px;
   font-weight: 500;
   line-height: 46px;
-  margin: 0;
+  margin: 0 7px 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
   text-wrap: nowrap;
@@ -54,18 +54,9 @@
   text-wrap: nowrap;
 }
 
-.profile__popup {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+/* .profile__popup {
   display: none;
-}
-
-.profile__popup_opened {
-  display: flex;
-}
+} */
 
 @media screen and (max-width: 880px) {
   .profile__info {

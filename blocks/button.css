@@ -32,7 +32,8 @@
   position: relative;
   width: 41.7px;
   height: 41.7px;
-  left: 430px;
+  left: 40px;
+  align-self: flex-end;
   border: none;
 }
 
@@ -49,11 +50,25 @@
   opacity: 80%;
 }
 
-.button_active {
-  display: none;
+.button_type_delete {
+  border: none;
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+}
+
+.button_type_like {
+  width: 21px;
+  height: 19px;
+  grid-column: 2/3;
+  justify-self: end;
+  margin-right: 18px;
 }
 
 /* .button_img{} */
+
 .button__img:hover {
   opacity: 0.6;
 }
@@ -62,11 +77,13 @@
   width: 41.667%;
   min-width: 7.5px;
   max-width: 10px;
+  color: #fff;
 }
 
 .button__img_type_add {
   min-width: 18px;
   max-width: 22px;
+  color: #fff;
 }
 .button__img_type_close {
   width: 100%;
@@ -83,11 +100,10 @@
 
   .button_type_close {
     top: -23.62px;
-    left: 200px;
   }
 }
 @media screen and (max-width: 435px) {
   .button_type_close {
-    left: 120px;
+    left: 10px;
   }
 }

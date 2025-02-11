@@ -30,7 +30,7 @@
   margin: 54px auto 30px;
 }
 
-.form__input_type_about-me {
+.form__input_type_about {
   margin-bottom: 48px;
 }
 
@@ -45,7 +45,7 @@
   .form__input_type_name {
     margin: 76px auto 30px;
   }
-  .form__input_type_about-me {
+  .form__input_type_about {
     margin-bottom: 46px;
   }
 }
