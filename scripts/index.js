@@ -22,6 +22,7 @@ const buttonCloseAddCardPopup =
 const formInputLink = elementsPopup.querySelector(".form__input_type_about");
 const buttonAddCard = document.querySelector(".button_type_add");
 const elementsPopupForm = document.querySelector(".elements__form");
+
 // ----- General
 const initialCardsData = [
   { name: "Lago di Braies", src: "./images/image-lago-di-braies.jpg" },
@@ -52,6 +53,10 @@ function closePopupAddCard() {
   elementsPopup.classList.remove("popup_opened");
 }
 
+function closePopupImage() {
+  cardPopup.classList.remove("popup_opened");
+}
+
 function handleEditProfileInfo(evt) {
   evt.preventDefault();
   profileName.textContent = formInputName.value;
@@ -71,9 +76,16 @@ function card(name, src) {
   const cardName = card.querySelector(".card__name");
   const buttonDeleteCard = card.querySelector(".button_type_delete");
   const buttonLikeCard = card.querySelector(".button_type_like");
+  const cardPopup = card.querySelector(".card__popup");
+  const popupImg = cardPopup.querySelector(".popup__img");
+  const popupCardName = cardPopup.querySelector(".popup__card-name");
+  const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
 
   cardImg.src = src;
   cardName.textContent = name;
+
+  popupImg.src = src;
+  popupCardName.textContent = name;
 
   function deleteCard() {
     const cardToDelete = buttonDeleteCard.closest(".card");
@@ -91,11 +103,20 @@ function card(name, src) {
       buttonLikeCard.src = "./images/Vector_like_inactive.png";
     }
   }
-  function popupImage() {}
+
+  function handleOpenCardImg() {
+    cardPopup.classList.add("popup_opened");
+  }
+
+  function closeCardImg() {
+    cardPopup.classList.remove("popup_opened");
+  }
 
   elementsCards.prepend(card);
-  buttonDeleteCard.addEventListener("click", deleteCard);
-  buttonLikeCard.addEventListener("click", likeCard);
+  buttonDeleteCard.addEventListener("click", () => deleteCard());
+  buttonLikeCard.addEventListener("click", () => likeCard());
+  buttonClosePopupImage.addEventListener("click", () => closeCardImg());
+  cardImg.addEventListener("click", handleOpenCardImg);
 }
 
 // ----- Botones
