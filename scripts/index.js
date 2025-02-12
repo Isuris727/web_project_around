@@ -82,9 +82,11 @@ function card(name, src) {
   const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
 
   cardImg.src = src;
+  cardImg.alt = name;
   cardName.textContent = name;
 
   popupImg.src = src;
+  popupImg.alt = name;
   popupCardName.textContent = name;
 
   function deleteCard() {
