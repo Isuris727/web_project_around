@@ -6,8 +6,10 @@
   box-sizing: content-box;
   padding: 0;
 }
+
 .button:hover {
   cursor: pointer;
+  transform: scale(1, 1.1);
 }
 .button_type_edit {
   width: 24px;
@@ -48,6 +50,16 @@
 
 .button_type_submit:hover {
   opacity: 80%;
+}
+
+.button_inactive {
+  opacity: 20%;
+  cursor: default;
+}
+
+.button_inactive:hover {
+  opacity: 20%;
+  cursor: default;
 }
 
 .button_type_delete {
