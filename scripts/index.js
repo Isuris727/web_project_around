@@ -1,14 +1,11 @@
 // ----Profile section
 const profileInfo = document.querySelector(".profile__info");
 const profilePopup = document.querySelector(".profile__popup");
-
 const profileName = document.querySelector(".profile__name");
 const profileAboutMe = document.querySelector(".profile__about-me");
 const formInputName = profilePopup.querySelector(".form__input_type_name");
 const formInputAboutme = profilePopup.querySelector(".form__input_type_about");
 const buttonEditProfile = profileInfo.querySelector(".button_type_edit");
-const buttonCloseProfilePopup =
-  profilePopup.querySelector(".button_type_close");
 const profilePopupForm = document.querySelector(".profile__form");
 // ----- Elements section
 const elementsCards = document.querySelector(".elements__cards");
@@ -17,8 +14,6 @@ const cardTemplate = document.querySelector(".elements__card-template");
 const formInputPlaceName = elementsPopup.querySelector(
   ".form__input_type_name"
 );
-const buttonCloseAddCardPopup =
-  elementsPopup.querySelector(".button_type_close");
 const formInputLink = elementsPopup.querySelector(".form__input_type_about");
 const buttonAddCard = document.querySelector(".button_type_add");
 const elementsPopupForm = document.querySelector(".elements__form");
@@ -52,6 +47,15 @@ function closePopup(popupElement) {
   const popupList = Array.from(document.querySelectorAll(".popup"));
   popupList.forEach((popupElement) => {
     popupElement.classList.remove("popup_opened");
+  });
+}
+
+function setOverlayClosePopup() {
+  const popupList = Array.from(document.querySelectorAll(".popup"));
+  popupList.forEach((openPopup) => {
+    openPopup.addEventListener("click", (evt) => {
+      checkOverlaySpace(evt);
+    });
   });
 }
 
@@ -94,13 +98,24 @@ function likeCard(buttonLikeCard) {
     buttonLikeCard.classList.remove("button_type_like_inactive");
     buttonLikeCard.classList.add("button_type_like_active");
     buttonLikeCard.src = "./images/Vector_like_active.png";
-    console.log("Me gusta la carta");
   } else {
     buttonLikeCard.classList.add("button_type_like_inactive");
     buttonLikeCard.classList.remove("button_type_like_active");
     buttonLikeCard.src = "./images/Vector_like_inactive.png";
-    console.log("No me gusta la carta");
   }
+}
+
+function handleOpenCardImg(cardPopup, cardToOpen) {
+  cardPopup.classList.add("popup_opened");
+  openCardImg(cardPopup, cardToOpen);
+}
+
+function openCardImg(cardPopup, cardToOpen) {
+  const popupImg = cardPopup.querySelector(".popup__img");
+  const popupCardName = cardPopup.querySelector(".popup__card-name");
+
+  popupImg.src = cardToOpen.children[1].src;
+  popupCardName.textContent = cardToOpen.children[2].textContent;
 }
 
 function setDeleteButtonCard() {
@@ -129,27 +144,29 @@ function setLikeButtonCard() {
   });
 }
 
-// function card(name, src) {
-//   const cardPopup = card.querySelector(".card__popup");
-//   const popupImg = cardPopup.querySelector(".popup__img");
-//   const popupCardName = cardPopup.querySelector(".popup__card-name");
-//   const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
+function setCardPopup() {
+  const cardImgList = Array.from(document.querySelectorAll(".card__img"));
+  cardImgList.forEach((cardImg) => {
+    cardImg.addEventListener("click", (evt) => {
+      const cardToOpen = evt.currentTarget.closest(".card");
+      const cardPopup = cardToOpen.querySelector(".card__popup");
+      handleOpenCardImg(cardPopup, cardToOpen);
+    });
+  });
+}
 
-//   popupImg.src = src;
-//   popupCardName.textContent = name;
+function setClosePopupButton() {
+  const closePopupButtonList = Array.from(
+    document.querySelectorAll(".button_type_close")
+  );
 
-//   function handleOpenCardImg() {
-//     cardPopup.classList.add("popup_opened");
-//   }
-
-//   function closeCardImg() {
-//     cardPopup.classList.remove("popup_opened");
-//   }
-
-//   // buttonClosePopupImage.addEventListener("click", () => closeCardImg()); <<<---
-//   cardImg.addEventListener("click", handleOpenCardImg);
-//   // cardPopup.addEventListener("click", () => checkOverlaySpace);
-// }
+  closePopupButtonList.forEach((closePopupButton) => {
+    closePopupButton.addEventListener("click", (evt) => {
+      const closePopupButtonSelected = evt.target.closest(".button_type_close");
+      closePopup(closePopupButtonSelected);
+    });
+  });
+}
 
 // ----- Botones y eventos
 
@@ -159,21 +176,10 @@ profilePopupForm.addEventListener("submit", handleEditProfileInfo);
 buttonAddCard.addEventListener("click", handleOpenPopupAddCard);
 elementsPopupForm.addEventListener("submit", handleAddCard);
 
-buttonCloseProfilePopup.addEventListener("click", () => closePopup());
-buttonCloseAddCardPopup.addEventListener("click", () => closePopup());
-
 document.addEventListener("keydown", (evt) => {
   if (evt.key === "Escape") {
     closePopup();
   }
-});
-
-profilePopup.addEventListener("click", (evt) => {
-  checkOverlaySpace(evt);
-});
-
-elementsPopup.addEventListener("click", (evt) => {
-  checkOverlaySpace(evt);
 });
 
 // ----- Valores iniciales
@@ -187,3 +193,6 @@ createCard(initialCardsData[5].name, initialCardsData[5].src);
 
 setDeleteButtonCard();
 setLikeButtonCard();
+setCardPopup();
+setClosePopupButton();
+setOverlayClosePopup();
