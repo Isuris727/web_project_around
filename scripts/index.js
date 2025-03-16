@@ -85,6 +85,7 @@ function createCard(name, src) {
 
   cardImg.src = src;
   cardName.textContent = name;
+  cardImg.alt = name;
 
   elementsCards.prepend(card);
 }
@@ -115,6 +116,7 @@ function openCardImg(cardPopup, cardToOpen) {
   const popupCardName = cardPopup.querySelector(".popup__card-name");
 
   popupImg.src = cardToOpen.children[1].src;
+  popupImg.alt = cardToOpen.children[2].textContent;
   popupCardName.textContent = cardToOpen.children[2].textContent;
 }
 
