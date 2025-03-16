@@ -89,6 +89,20 @@ function deleteCard(cardToDelete) {
   cardToDelete.remove();
 }
 
+function likeCard(buttonLikeCard) {
+  if (buttonLikeCard.classList.contains("button_type_like_inactive")) {
+    buttonLikeCard.classList.remove("button_type_like_inactive");
+    buttonLikeCard.classList.add("button_type_like_active");
+    buttonLikeCard.src = "./images/Vector_like_active.png";
+    console.log("Me gusta la carta");
+  } else {
+    buttonLikeCard.classList.add("button_type_like_inactive");
+    buttonLikeCard.classList.remove("button_type_like_active");
+    buttonLikeCard.src = "./images/Vector_like_inactive.png";
+    console.log("No me gusta la carta");
+  }
+}
+
 function setDeleteButtonCard() {
   const buttonDeleteCardList = Array.from(
     document.querySelectorAll(".button_type_delete")
@@ -102,39 +116,27 @@ function setDeleteButtonCard() {
   });
 }
 
+function setLikeButtonCard() {
+  const buttonLikeButtonCardList = Array.from(
+    document.querySelectorAll(".button_type_like")
+  );
+
+  buttonLikeButtonCardList.forEach((LikeCard) => {
+    LikeCard.addEventListener("click", (evt) => {
+      const buttonLikeCard = evt.target.closest(".button_type_like");
+      likeCard(buttonLikeCard);
+    });
+  });
+}
+
 // function card(name, src) {
-//   const card = cardTemplate.cloneNode(true).content.querySelector(".card");
-//   const cardImg = card.querySelector(".card__img");
-//   const cardName = card.querySelector(".card__name");
-//   const buttonDeleteCard = card.querySelector(".button_type_delete");
-//   const buttonLikeCard = card.querySelector(".button_type_like");
 //   const cardPopup = card.querySelector(".card__popup");
 //   const popupImg = cardPopup.querySelector(".popup__img");
 //   const popupCardName = cardPopup.querySelector(".popup__card-name");
 //   const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
 
-//   cardImg.src = src;
-//   cardName.textContent = name;
-
 //   popupImg.src = src;
 //   popupCardName.textContent = name;
-
-//   function deleteCard() {
-//     const cardToDelete = buttonDeleteCard.closest(".card");
-//     cardToDelete.remove();
-//   }
-
-//   function likeCard() {
-//     if (buttonLikeCard.classList.contains("button_type_like_inactive")) {
-//       buttonLikeCard.classList.remove("button_type_like_inactive");
-//       buttonLikeCard.classList.add("button_type_like_active");
-//       buttonLikeCard.src = "./images/Vector_like_active.png";
-//     } else {
-//       buttonLikeCard.classList.add("button_type_like_inactive");
-//       buttonLikeCard.classList.remove("button_type_like_active");
-//       buttonLikeCard.src = "./images/Vector_like_inactive.png";
-//     }
-//   }
 
 //   function handleOpenCardImg() {
 //     cardPopup.classList.add("popup_opened");
@@ -144,9 +146,6 @@ function setDeleteButtonCard() {
 //     cardPopup.classList.remove("popup_opened");
 //   }
 
-//   elementsCards.prepend(card);
-//   buttonDeleteCard.addEventListener("click", () => deleteCard());
-//   buttonLikeCard.addEventListener("click", () => likeCard());
 //   // buttonClosePopupImage.addEventListener("click", () => closeCardImg()); <<<---
 //   cardImg.addEventListener("click", handleOpenCardImg);
 //   // cardPopup.addEventListener("click", () => checkOverlaySpace);
@@ -187,3 +186,4 @@ createCard(initialCardsData[4].name, initialCardsData[4].src);
 createCard(initialCardsData[5].name, initialCardsData[5].src);
 
 setDeleteButtonCard();
+setLikeButtonCard();
