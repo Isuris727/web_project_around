@@ -162,8 +162,7 @@ function setClosePopupButton() {
 
   closePopupButtonList.forEach((closePopupButton) => {
     closePopupButton.addEventListener("click", (evt) => {
-      const closePopupButtonSelected = evt.target.closest(".button_type_close");
-      closePopup(closePopupButtonSelected);
+      closePopup(closePopupButton);
     });
   });
 }
