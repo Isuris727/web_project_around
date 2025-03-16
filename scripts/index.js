@@ -24,6 +24,7 @@ const buttonAddCard = document.querySelector(".button_type_add");
 const elementsPopupForm = document.querySelector(".elements__form");
 
 // ----- General
+
 const initialCardsData = [
   { name: "Lago di Braies", src: "./images/image-lago-di-braies.jpg" },
   { name: "Lago louise", src: "./images/image_lago-louise.jpg" },
@@ -36,12 +37,10 @@ const initialCardsData = [
   { name: "Valle de Yosemite", src: "./images/image_yosemite-valley.jpg" },
 ];
 
+//------- Funciones
+
 function handleOpenPopupProfile() {
   profilePopup.classList.add("popup_opened");
-}
-
-function closePopupProfile() {
-  profilePopup.classList.remove("popup_opened");
 }
 
 function handleOpenPopupAddCard() {
@@ -49,77 +48,111 @@ function handleOpenPopupAddCard() {
   elementsPopupForm.reset();
 }
 
-function closePopupAddCard() {
-  elementsPopup.classList.remove("popup_opened");
+function closePopup(popupElement) {
+  const popupList = Array.from(document.querySelectorAll(".popup"));
+  popupList.forEach((popupElement) => {
+    popupElement.classList.remove("popup_opened");
+  });
 }
 
-function closePopupImage() {
-  cardPopup.classList.remove("popup_opened");
+function checkOverlaySpace(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup();
+  }
 }
 
 function handleEditProfileInfo(evt) {
   evt.preventDefault();
   profileName.textContent = formInputName.value;
   profileAboutMe.textContent = formInputAboutme.value;
-  closePopupProfile();
+  closePopup();
 }
 
 function handleAddCard(evt) {
-  card(formInputPlaceName.value, formInputLink.value);
+  createCard(formInputPlaceName.value, formInputLink.value);
   evt.preventDefault();
-  closePopupAddCard();
+  closePopup();
 }
 
-function card(name, src) {
+function createCard(name, src) {
   const card = cardTemplate.cloneNode(true).content.querySelector(".card");
   const cardImg = card.querySelector(".card__img");
   const cardName = card.querySelector(".card__name");
-  const buttonDeleteCard = card.querySelector(".button_type_delete");
-  const buttonLikeCard = card.querySelector(".button_type_like");
-  const cardPopup = card.querySelector(".card__popup");
-  const popupImg = cardPopup.querySelector(".popup__img");
-  const popupCardName = cardPopup.querySelector(".popup__card-name");
-  const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
 
   cardImg.src = src;
   cardName.textContent = name;
 
-  popupImg.src = src;
-  popupCardName.textContent = name;
-
-  function deleteCard() {
-    const cardToDelete = buttonDeleteCard.closest(".card");
-    cardToDelete.remove();
-  }
-
-  function likeCard() {
-    if (buttonLikeCard.classList.contains("button_type_like_inactive")) {
-      buttonLikeCard.classList.remove("button_type_like_inactive");
-      buttonLikeCard.classList.add("button_type_like_active");
-      buttonLikeCard.src = "./images/Vector_like_active.png";
-    } else {
-      buttonLikeCard.classList.add("button_type_like_inactive");
-      buttonLikeCard.classList.remove("button_type_like_active");
-      buttonLikeCard.src = "./images/Vector_like_inactive.png";
-    }
-  }
-
-  function handleOpenCardImg() {
-    cardPopup.classList.add("popup_opened");
-  }
-
-  function closeCardImg() {
-    cardPopup.classList.remove("popup_opened");
-  }
-
   elementsCards.prepend(card);
-  buttonDeleteCard.addEventListener("click", () => deleteCard());
-  buttonLikeCard.addEventListener("click", () => likeCard());
-  buttonClosePopupImage.addEventListener("click", () => closeCardImg());
-  cardImg.addEventListener("click", handleOpenCardImg);
 }
 
-// ----- Botones
+function deleteCard(cardToDelete) {
+  cardToDelete.remove();
+}
+
+function setDeleteButtonCard() {
+  const buttonDeleteCardList = Array.from(
+    document.querySelectorAll(".button_type_delete")
+  );
+
+  buttonDeleteCardList.forEach((deleteCardButton) => {
+    deleteCardButton.addEventListener("click", (evt) => {
+      const cardToDelete = evt.currentTarget.closest(".card");
+      deleteCard(cardToDelete);
+    });
+  });
+}
+
+// function card(name, src) {
+//   const card = cardTemplate.cloneNode(true).content.querySelector(".card");
+//   const cardImg = card.querySelector(".card__img");
+//   const cardName = card.querySelector(".card__name");
+//   const buttonDeleteCard = card.querySelector(".button_type_delete");
+//   const buttonLikeCard = card.querySelector(".button_type_like");
+//   const cardPopup = card.querySelector(".card__popup");
+//   const popupImg = cardPopup.querySelector(".popup__img");
+//   const popupCardName = cardPopup.querySelector(".popup__card-name");
+//   const buttonClosePopupImage = cardPopup.querySelector(".button_type_close");
+
+//   cardImg.src = src;
+//   cardName.textContent = name;
+
+//   popupImg.src = src;
+//   popupCardName.textContent = name;
+
+//   function deleteCard() {
+//     const cardToDelete = buttonDeleteCard.closest(".card");
+//     cardToDelete.remove();
+//   }
+
+//   function likeCard() {
+//     if (buttonLikeCard.classList.contains("button_type_like_inactive")) {
+//       buttonLikeCard.classList.remove("button_type_like_inactive");
+//       buttonLikeCard.classList.add("button_type_like_active");
+//       buttonLikeCard.src = "./images/Vector_like_active.png";
+//     } else {
+//       buttonLikeCard.classList.add("button_type_like_inactive");
+//       buttonLikeCard.classList.remove("button_type_like_active");
+//       buttonLikeCard.src = "./images/Vector_like_inactive.png";
+//     }
+//   }
+
+//   function handleOpenCardImg() {
+//     cardPopup.classList.add("popup_opened");
+//   }
+
+//   function closeCardImg() {
+//     cardPopup.classList.remove("popup_opened");
+//   }
+
+//   elementsCards.prepend(card);
+//   buttonDeleteCard.addEventListener("click", () => deleteCard());
+//   buttonLikeCard.addEventListener("click", () => likeCard());
+//   // buttonClosePopupImage.addEventListener("click", () => closeCardImg()); <<<---
+//   cardImg.addEventListener("click", handleOpenCardImg);
+//   // cardPopup.addEventListener("click", () => checkOverlaySpace);
+// }
+
+// ----- Botones y eventos
 
 buttonEditProfile.addEventListener("click", handleOpenPopupProfile);
 profilePopupForm.addEventListener("submit", handleEditProfileInfo);
@@ -127,14 +160,30 @@ profilePopupForm.addEventListener("submit", handleEditProfileInfo);
 buttonAddCard.addEventListener("click", handleOpenPopupAddCard);
 elementsPopupForm.addEventListener("submit", handleAddCard);
 
-buttonCloseProfilePopup.addEventListener("click", () => closePopupProfile());
-buttonCloseAddCardPopup.addEventListener("click", () => closePopupAddCard());
+buttonCloseProfilePopup.addEventListener("click", () => closePopup());
+buttonCloseAddCardPopup.addEventListener("click", () => closePopup());
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closePopup();
+  }
+});
+
+profilePopup.addEventListener("click", (evt) => {
+  checkOverlaySpace(evt);
+});
+
+elementsPopup.addEventListener("click", (evt) => {
+  checkOverlaySpace(evt);
+});
 
 // ----- Valores iniciales
 
-card(initialCardsData[0].name, initialCardsData[0].src);
-card(initialCardsData[1].name, initialCardsData[1].src);
-card(initialCardsData[2].name, initialCardsData[2].src);
-card(initialCardsData[3].name, initialCardsData[3].src);
-card(initialCardsData[4].name, initialCardsData[4].src);
-card(initialCardsData[5].name, initialCardsData[5].src);
+createCard(initialCardsData[0].name, initialCardsData[0].src);
+createCard(initialCardsData[1].name, initialCardsData[1].src);
+createCard(initialCardsData[2].name, initialCardsData[2].src);
+createCard(initialCardsData[3].name, initialCardsData[3].src);
+createCard(initialCardsData[4].name, initialCardsData[4].src);
+createCard(initialCardsData[5].name, initialCardsData[5].src);
+
+setDeleteButtonCard();
