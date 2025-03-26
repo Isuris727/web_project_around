@@ -16,7 +16,19 @@ const elementsPopup = document.querySelector(".elements__popup");
 
 import Card from "./Card.js";
 
-//------
+function handleAddCard(evt) {
+  const formInputPlaceName = elementsPopup.querySelector(
+    ".form__input_type_name"
+  );
+  const formInputLink = elementsPopup.querySelector(".form__input_type_about");
+  const newPlace = { name: formInputPlaceName.value, src: formInputLink.value };
+  const newCard = new Card(newPlace, ".elements__card-template");
+  newCard.addCard();
+  evt.preventDefault();
+  closePopup();
+}
+
+//------ popups
 
 function handleOpenPopupProfile() {
   profilePopup.classList.add("popup_opened");
@@ -66,18 +78,6 @@ function setClosePopupButton() {
       closePopup(closePopupButton);
     });
   });
-}
-
-function handleAddCard(evt) {
-  const formInputPlaceName = elementsPopup.querySelector(
-    ".form__input_type_name"
-  );
-  const formInputLink = elementsPopup.querySelector(".form__input_type_about");
-  const newPlace = { name: formInputPlaceName.value, src: formInputLink.value };
-  const newCard = new Card(newPlace, ".elements__card-template");
-  newCard.addCard();
-  evt.preventDefault();
-  closePopup();
 }
 
 // ----- Botones y eventos

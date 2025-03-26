@@ -49,6 +49,7 @@ export default class FormValidator {
   }
 
   _setEventListeners(formElement) {
+    const inputList = Array.from(formElement.querySelectorAll(".form__input"));
     const buttonElement = this.formElement.querySelector(".button_type_submit");
 
     this._toggleButtonState(inputList, buttonElement);
@@ -68,12 +69,3 @@ export default class FormValidator {
     this._setEventListeners(this.formElement);
   }
 }
-
-const settings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
