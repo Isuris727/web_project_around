@@ -8,7 +8,7 @@ export default class Card {
       .content.querySelector(".card");
     this._cardImg = this.card.querySelector(".card__img");
     this._buttonLikeCard = this.card.querySelector(".button_type_like");
-    this._cardPopup = this.card.querySelector(".card__popup");
+    this._cardPopup = document.querySelector(".card__popup");
   }
   _createCard(cardData) {
     const elementsCards = document.querySelector(".elements__cards");
@@ -47,7 +47,7 @@ export default class Card {
     popupCardName.textContent = this._name;
   }
   _closeCardImg() {
-    cardPopup.classList.remove("popup_opened");
+    this._cardPopup.classList.remove("popup_opened");
   }
 
   _handleOpenCardImg() {
