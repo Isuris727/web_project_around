@@ -1,20 +1,23 @@
 // ----- importaciones
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import { setClosePopupButton, setOverlayClosePopup } from "./utils.js";
+import Card from "../../components/Card.js";
+import FormValidator from "../../components/FormValidator.js";
+import {
+  setClosePopupButton,
+  setOverlayClosePopup,
+} from "../../components/utils.js";
 
 // ----- Valores iniciales
 
 const initialCardsData = [
-  { name: "Lago di Braies", src: "./images/image-lago-di-braies.jpg" },
-  { name: "Lago louise", src: "./images/image_lago-louise.jpg" },
-  { name: "Latemar", src: "./images/image-latemar.jpg" },
-  { name: "Montañas Calvas", src: "./images/image_montanas-calvas.jpg" },
+  { name: "Lago di Braies", src: "./../images/image-lago-di-braies.jpg" },
+  { name: "Lago louise", src: "./../images/image_lago-louise.jpg" },
+  { name: "Latemar", src: "./../images/image-latemar.jpg" },
+  { name: "Montañas Calvas", src: "./../images/image_montanas-calvas.jpg" },
   {
     name: "Parque Nacional Vanois",
-    src: "./images/image_vanois-national-park.jpg",
+    src: "./../images/image_vanois-national-park.jpg",
   },
-  { name: "Valle de Yosemite", src: "./images/image_yosemite-valley.jpg" },
+  { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
 ];
 
 const profileForm = document.forms.profileForm.elements;

@@ -30,11 +30,11 @@ export default class Card {
     if (this._buttonLikeCard.classList.contains("button_type_like_inactive")) {
       this._buttonLikeCard.classList.remove("button_type_like_inactive");
       this._buttonLikeCard.classList.add("button_type_like_active");
-      this._buttonLikeCard.src = "./images/Vector_like_active.png";
+      this._buttonLikeCard.src = "./../images/Vector_like_active.png";
     } else {
       this._buttonLikeCard.classList.add("button_type_like_inactive");
       this._buttonLikeCard.classList.remove("button_type_like_active");
-      this._buttonLikeCard.src = "./images/Vector_like_inactive.png";
+      this._buttonLikeCard.src = "./../images/Vector_like_inactive.png";
     }
   }
 
