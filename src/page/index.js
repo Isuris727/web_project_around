@@ -1,5 +1,6 @@
 // ----- importaciones
 import Card from "../../components/Card.js";
+import Section from "../../components/Section.js";
 import FormValidator from "../../components/FormValidator.js";
 import {
   setClosePopupButton,
@@ -20,22 +21,27 @@ const initialCardsData = [
   { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
 ];
 
+const newCard = (data) => {
+  return new Card(data, ".elements__card-template").addCard();
+};
+
+//-----
+
+const cardSection = new Section(
+  {
+    items: initialCardsData,
+    renderer: (item) => {
+      cardSection.addItem(newCard(item));
+    },
+  },
+  ".elements__cards"
+);
+
+cardSection.renderItems(initialCardsData);
+
+//----
 const profileForm = document.forms.profileForm.elements;
 const addPlaceForm = document.forms.addPlaceForm.elements;
-
-const initialCard1 = new Card(initialCardsData[0], ".elements__card-template");
-const initialCard2 = new Card(initialCardsData[1], ".elements__card-template");
-const initialCard3 = new Card(initialCardsData[2], ".elements__card-template");
-const initialCard4 = new Card(initialCardsData[3], ".elements__card-template");
-const initialCard5 = new Card(initialCardsData[4], ".elements__card-template");
-const initialCard6 = new Card(initialCardsData[5], ".elements__card-template");
-
-initialCard1.addCard();
-initialCard2.addCard();
-initialCard3.addCard();
-initialCard4.addCard();
-initialCard5.addCard();
-initialCard6.addCard();
 
 setClosePopupButton();
 setOverlayClosePopup();

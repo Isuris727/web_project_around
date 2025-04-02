@@ -30,27 +30,27 @@ function handleAddCard(evt) {
 
 //------ popups
 
-function handleOpenPopupProfile() {
-  profilePopup.classList.add("popup_opened");
-}
+// function handleOpenPopupProfile() {
+//   profilePopup.classList.add("popup_opened");
+// }
 
 function handleOpenPopupAddCard() {
   elementsPopup.classList.add("popup_opened");
   elementsPopupForm.reset();
 }
 
-function closePopup(popupElement) {
-  const popupList = Array.from(document.querySelectorAll(".popup"));
-  popupList.forEach((popupElement) => {
-    popupElement.classList.remove("popup_opened");
-  });
-}
+// function closePopup(popupElement) {
+//   const popupList = Array.from(document.querySelectorAll(".popup"));
+//   popupList.forEach((popupElement) => {
+//     popupElement.classList.remove("popup_opened");
+//   });
+// }
 
-function checkOverlaySpace(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup();
-  }
-}
+// function checkOverlaySpace(evt) {
+//   if (evt.target === evt.currentTarget) {
+//     closePopup();
+//   }
+// }
 
 function handleEditProfileInfo(evt) {
   evt.preventDefault();
@@ -82,7 +82,7 @@ function setClosePopupButton() {
 
 // ----- Botones y eventos
 
-buttonEditProfile.addEventListener("click", handleOpenPopupProfile);
+// buttonEditProfile.addEventListener("click", handleOpenPopupProfile);
 profilePopupForm.addEventListener("submit", handleEditProfileInfo);
 
 buttonAddCard.addEventListener("click", handleOpenPopupAddCard);

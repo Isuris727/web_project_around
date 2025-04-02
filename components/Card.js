@@ -10,16 +10,18 @@ export default class Card {
     this._buttonLikeCard = this.card.querySelector(".button_type_like");
     this._cardPopup = this.card.querySelector(".card__popup");
   }
-  _createCard(cardData) {
-    const elementsCards = document.querySelector(".elements__cards");
+  _createCard() {
+    // const elementsCards = document.querySelector(".elements__cards");
+    // const cardElement = this._cardTemplate
+    //   .cloneNode(true)
+    //   .content.querySelector(".card");
     const cardImg = this.card.querySelector(".card__img");
     const cardName = this.card.querySelector(".card__name");
 
     cardImg.src = this._src;
     cardImg.alt = this._name;
     cardName.textContent = this._name;
-
-    elementsCards.prepend(this.card);
+    // elementsCards.prepend(this.card);
   }
 
   _deleteCard() {
@@ -74,5 +76,6 @@ export default class Card {
     this._setDeleteButtonCard();
     this._setLikeCardButton();
     this._handleOpenCardImg();
+    return this.card;
   }
 }
