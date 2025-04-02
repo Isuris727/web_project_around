@@ -20,13 +20,12 @@ export default class Popup {
   closePopup() {
     this._popup.classList.remove("popup_opened");
   }
-  setEventListeners(buttonSelector, action) {
-    // revisar si funciona ponerlo para varios botones o mejor especificar solo para cerrar y otro para submit
-    this.button = document.querySelector(buttonSelector);
-    this.action = action;
-    this.button.addEventListener("click", (evt) => {
-      evt.preventDefault();
-      this.action;
-    });
+  setEventListener() {
+    this._popup
+      .querySelector(".button_type_close")
+      .addEventListener("click", (evt) => {
+        evt.preventDefault();
+        this.closePopup();
+      });
   }
 }

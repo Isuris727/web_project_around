@@ -1,11 +1,9 @@
 // ----- importaciones
-import Card from "../../components/Card.js";
 import Section from "../../components/Section.js";
+import Card from "../../components/Card.js";
+import Popup from "../../components/Popup.js";
 import FormValidator from "../../components/FormValidator.js";
-import {
-  setClosePopupButton,
-  setOverlayClosePopup,
-} from "../../components/utils.js";
+import { buttonEditProfile, buttonAddCard } from "../../components/utils.js";
 
 // ----- Valores iniciales
 
@@ -20,6 +18,20 @@ const initialCardsData = [
   },
   { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
 ];
+
+const profilePopup = new Popup(".profile__popup");
+const addCardPopup = new Popup(".elements__popup");
+
+buttonEditProfile.addEventListener("click", () => {
+  profilePopup.openPopup();
+});
+
+buttonAddCard.addEventListener("click", () => {
+  addCardPopup.openPopup();
+});
+
+profilePopup.setEventListener();
+addCardPopup.setEventListener();
 
 const newCard = (data) => {
   return new Card(data, ".elements__card-template").addCard();
@@ -42,9 +54,6 @@ cardSection.renderItems(initialCardsData);
 //----
 const profileForm = document.forms.profileForm.elements;
 const addPlaceForm = document.forms.addPlaceForm.elements;
-
-setClosePopupButton();
-setOverlayClosePopup();
 
 //------- validaciones
 
