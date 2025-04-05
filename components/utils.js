@@ -59,14 +59,14 @@ function handleEditProfileInfo(evt) {
   closePopup();
 }
 
-function setOverlayClosePopup() {
-  const popupList = Array.from(document.querySelectorAll(".popup"));
-  popupList.forEach((openPopup) => {
-    openPopup.addEventListener("click", (evt) => {
-      checkOverlaySpace(evt);
-    });
-  });
-}
+// function setOverlayClosePopup() {
+//   const popupList = Array.from(document.querySelectorAll(".popup"));
+//   popupList.forEach((openPopup) => {
+//     openPopup.addEventListener("click", (evt) => {
+//       checkOverlaySpace(evt);
+//     });
+//   });
+// }
 
 // function setClosePopupButton() {
 //   const closePopupButtonList = Array.from(
@@ -88,8 +88,8 @@ profilePopupForm.addEventListener("submit", handleEditProfileInfo);
 // buttonAddCard.addEventListener("click", handleOpenPopupAddCard);
 elementsPopupForm.addEventListener("submit", handleAddCard);
 
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    closePopup();
-  }
-});
+// document.addEventListener("keydown", (evt) => {
+//   if (evt.key === "Escape") {
+//     closePopup();
+//   }
+// });
