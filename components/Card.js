@@ -6,9 +6,7 @@ export default class Card {
     this.card = this._cardTemplate
       .cloneNode(true)
       .content.querySelector(".card");
-    // this._cardImg = this.card.querySelector(".card__img");
     this._buttonLikeCard = this.card.querySelector(".button_type_like");
-    // this._cardPopup = this.card.querySelector(".card__popup");
   }
   _createCard() {
     const cardImg = this.card.querySelector(".card__img");
@@ -35,25 +33,6 @@ export default class Card {
     }
   }
 
-  // _openCardImg() {
-  //   const popupImg = this._cardPopup.querySelector(".popup__img");
-  //   const popupCardName = this._cardPopup.querySelector(".popup__card-name");
-
-  //   popupImg.src = this._src;
-  //   popupImg.alt = this._name;
-  //   popupCardName.textContent = this._name;
-  // }
-  // _closeCardImg() {
-  //   cardPopup.classList.remove("popup_opened");
-  // }
-
-  // _handleOpenCardImg() {
-  //   this._cardImg.addEventListener("click", () => {
-  //     this._cardPopup.classList.add("popup_opened");
-  //     this._openCardImg(this._cardPopup);
-  //   });
-  // }
-
   _setDeleteButtonCard() {
     const buttonDeleteCard = this.card.querySelector(".button_type_delete");
 
@@ -70,7 +49,6 @@ export default class Card {
     this._createCard();
     this._setDeleteButtonCard();
     this._setLikeCardButton();
-    // this._handleOpenCardImg();
     return this.card;
   }
 }

@@ -9,5 +9,9 @@ export default class UserInfo {
       about: this._profileAbout.textContent,
     };
   }
-  setUserInfo() {}
+
+  setUserInfo(values) {
+    this._profileName.textContent = values.name;
+    this._profileAbout.textContent = values.src;
+  }
 }
