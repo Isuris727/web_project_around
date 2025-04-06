@@ -6,20 +6,15 @@ export default class Card {
     this.card = this._cardTemplate
       .cloneNode(true)
       .content.querySelector(".card");
-    this._cardImg = this.card.querySelector(".card__img");
     this._buttonLikeCard = this.card.querySelector(".button_type_like");
-    this._cardPopup = document.querySelector(".card__popup");
   }
-  _createCard(cardData) {
-    const elementsCards = document.querySelector(".elements__cards");
+  _createCard() {
     const cardImg = this.card.querySelector(".card__img");
     const cardName = this.card.querySelector(".card__name");
 
     cardImg.src = this._src;
     cardImg.alt = this._name;
     cardName.textContent = this._name;
-
-    elementsCards.prepend(this.card);
   }
 
   _deleteCard() {
@@ -30,31 +25,12 @@ export default class Card {
     if (this._buttonLikeCard.classList.contains("button_type_like_inactive")) {
       this._buttonLikeCard.classList.remove("button_type_like_inactive");
       this._buttonLikeCard.classList.add("button_type_like_active");
-      this._buttonLikeCard.src = "./images/Vector_like_active.png";
+      this._buttonLikeCard.src = "./../images/Vector_like_active.png";
     } else {
       this._buttonLikeCard.classList.add("button_type_like_inactive");
       this._buttonLikeCard.classList.remove("button_type_like_active");
-      this._buttonLikeCard.src = "./images/Vector_like_inactive.png";
+      this._buttonLikeCard.src = "./../images/Vector_like_inactive.png";
     }
-  }
-
-  _openCardImg() {
-    const popupImg = this._cardPopup.querySelector(".popup__img");
-    const popupCardName = this._cardPopup.querySelector(".popup__card-name");
-
-    popupImg.src = this._src;
-    popupImg.alt = this._name;
-    popupCardName.textContent = this._name;
-  }
-  _closeCardImg() {
-    this._cardPopup.classList.remove("popup_opened");
-  }
-
-  _handleOpenCardImg() {
-    this._cardImg.addEventListener("click", () => {
-      this._cardPopup.classList.add("popup_opened");
-      this._openCardImg(this._cardPopup);
-    });
   }
 
   _setDeleteButtonCard() {
@@ -73,6 +49,6 @@ export default class Card {
     this._createCard();
     this._setDeleteButtonCard();
     this._setLikeCardButton();
-    this._handleOpenCardImg();
+    return this.card;
   }
 }
