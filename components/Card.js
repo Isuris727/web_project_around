@@ -1,6 +1,6 @@
 export default class Card {
   constructor(cardData, templateSelector) {
-    this._src = cardData.src;
+    this._src = cardData.link;
     this._name = cardData.name;
     this._cardTemplate = document.querySelector(templateSelector);
     this.card = this._cardTemplate

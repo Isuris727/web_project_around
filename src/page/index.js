@@ -5,23 +5,28 @@ import PopupWithForm from "../../components/PopupWithForm.js";
 import PopupWithImage from "../../components/PopupWithImage.js";
 import FormValidator from "../../components/FormValidator.js";
 import UserInfo from "../../components/UserInfo.js";
+import Api from "../../components/Api.js";
 import { buttonEditProfile, buttonAddCard } from "../../components/utils.js";
 
 // ----- Valores iniciales
 
-const initialCardsData = [
-  { name: "Lago di Braies", src: "./../images/image-lago-di-braies.jpg" },
-  { name: "Lago louise", src: "./../images/image_lago-louise.jpg" },
-  { name: "Latemar", src: "./../images/image-latemar.jpg" },
-  { name: "Montañas Calvas", src: "./../images/image_montanas-calvas.jpg" },
-  {
-    name: "Parque Nacional Vanois",
-    src: "./../images/image_vanois-national-park.jpg",
-  },
-  { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
-];
+// const initialCardsData = [
+//   { name: "Lago di Braies", src: "./../images/image-lago-di-braies.jpg" },
+//   { name: "Lago louise", src: "./../images/image_lago-louise.jpg" },
+//   { name: "Latemar", src: "./../images/image-latemar.jpg" },
+//   { name: "Montañas Calvas", src: "./../images/image_montanas-calvas.jpg" },
+//   {
+//     name: "Parque Nacional Vanois",
+//     src: "./../images/image_vanois-national-park.jpg",
+//   },
+//   { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
+// ];
 
 // ------- clases
+
+const api = new Api("https://around-api.es.tripleten-services.com/v1/");
+
+console.log(api.getCardsData());
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
@@ -38,15 +43,15 @@ const addCardPopup = new PopupWithForm(".elements__popup", () => {
   cardSection.addItem(newCard(infoNewCard));
 });
 
-const cardSection = new Section(
-  {
-    items: initialCardsData,
-    renderer: (item) => {
-      cardSection.addItem(newCard(item));
-    },
-  },
-  ".elements__cards"
-);
+// const cardSection = new Section(
+//   {
+//     items: cards,
+//     renderer: (item) => {
+//       cardSection.addItem(newCard(item));
+//     },
+//   },
+//   ".elements__cards"
+// );
 
 // ------- Eventos y funciones
 
@@ -71,7 +76,8 @@ const newCard = (data) => {
 //-----
 profilePopup.setEventListeners();
 addCardPopup.setEventListeners();
-cardSection.renderItems(initialCardsData);
+// cardSection.renderItems(initialCardsData);
+// cardSection.renderItems(cards);
 
 //----
 const profileForm = document.forms.profileForm.elements;
@@ -86,3 +92,19 @@ validateProfileForm.enableValidation();
 validateAddPlaceForm.enableValidation();
 
 // -------- pruebas
+
+console.log(api.getCardsData);
+const cards = api.getCardsData().then(function (data) {
+  const cardSection = new Section(
+    {
+      items: data,
+      renderer: (item) => {
+        cardSection.addItem(newCard(item));
+      },
+    },
+    ".elements__cards"
+  );
+  cardSection.renderItems();
+});
+
+console.log(cards);
