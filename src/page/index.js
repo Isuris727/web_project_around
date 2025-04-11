@@ -8,50 +8,30 @@ import UserInfo from "../../components/UserInfo.js";
 import Api from "../../components/Api.js";
 import { buttonEditProfile, buttonAddCard } from "../../components/utils.js";
 
-// ----- Valores iniciales
-
-// const initialCardsData = [
-//   { name: "Lago di Braies", src: "./../images/image-lago-di-braies.jpg" },
-//   { name: "Lago louise", src: "./../images/image_lago-louise.jpg" },
-//   { name: "Latemar", src: "./../images/image-latemar.jpg" },
-//   { name: "Montañas Calvas", src: "./../images/image_montanas-calvas.jpg" },
-//   {
-//     name: "Parque Nacional Vanois",
-//     src: "./../images/image_vanois-national-park.jpg",
-//   },
-//   { name: "Valle de Yosemite", src: "./../images/image_yosemite-valley.jpg" },
-// ];
-
 // ------- clases
 
 const api = new Api("https://around-api.es.tripleten-services.com/v1/");
 
-console.log(api.getCardsData());
-
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
   profileAboutSelector: ".profile__about-me",
+  profileAvatarSelector: ".profile__img",
 });
+
+const userData = api.getUserInfo().then((data) => userInfo.getUserInfo(data));
+
+console.log(userData);
 
 const profilePopup = new PopupWithForm(".profile__popup", () => {
   const newProfileInfo = profilePopup._getInputValues();
   userInfo.setUserInfo(newProfileInfo);
+  api.updateUserInfo(newProfileInfo);
 });
 
 const addCardPopup = new PopupWithForm(".elements__popup", () => {
   const infoNewCard = addCardPopup._getInputValues();
-  cardSection.addItem(newCard(infoNewCard));
+  cardSection.addItem(createNewCard(infoNewCard));
 });
-
-// const cardSection = new Section(
-//   {
-//     items: cards,
-//     renderer: (item) => {
-//       cardSection.addItem(newCard(item));
-//     },
-//   },
-//   ".elements__cards"
-// );
 
 // ------- Eventos y funciones
 
@@ -69,15 +49,28 @@ buttonAddCard.addEventListener("click", () => {
   addCardPopup.openPopup();
 });
 
-const newCard = (data) => {
+const createNewCard = (data) => {
   return new Card(data, ".elements__card-template").addCard();
 };
+
+// ------
+
+const cards = api.getCardsData().then(function (data) {
+  const cardSection = new Section(
+    {
+      items: data,
+      renderer: (item) => {
+        cardSection.addItem(createNewCard(item));
+      },
+    },
+    ".elements__cards"
+  );
+  cardSection.renderItems();
+});
 
 //-----
 profilePopup.setEventListeners();
 addCardPopup.setEventListeners();
-// cardSection.renderItems(initialCardsData);
-// cardSection.renderItems(cards);
 
 //----
 const profileForm = document.forms.profileForm.elements;
@@ -93,18 +86,5 @@ validateAddPlaceForm.enableValidation();
 
 // -------- pruebas
 
-console.log(api.getCardsData);
-const cards = api.getCardsData().then(function (data) {
-  const cardSection = new Section(
-    {
-      items: data,
-      renderer: (item) => {
-        cardSection.addItem(newCard(item));
-      },
-    },
-    ".elements__cards"
-  );
-  cardSection.renderItems();
-});
-
-console.log(cards);
+console.log(api.getUserInfo());
+// api.getUserInfo().then(UserInfo.setUserInfo);
