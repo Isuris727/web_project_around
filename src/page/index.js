@@ -37,7 +37,9 @@ const addCardPopup = new PopupWithForm(".elements__popup", () => {
 });
 
 const editAvatarPopup = new PopupWithForm(".profile__img-popup", () => {
-  console.log("cambiar imagen");
+  const newAvatarLink = editAvatarPopup._getSingleInputValue();
+  userInfo.setProfileAvatar(newAvatarLink);
+  api.changeAvatar(newAvatarLink);
 });
 
 const confirmDeleteCardPopup = new PopupWithConfirmation(

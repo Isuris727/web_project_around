@@ -26,6 +26,10 @@ export default class Api {
     return this._fetchData("users/me", "PATCH", newProfileInfo);
   }
 
+  changeAvatar(newAvatarLink) {
+    return this._fetchData("users/me/avatar", "PATCH", newAvatarLink);
+  }
+
   // addCardData(newCardData) {
   //   return this._fetchData("cards", "POST", newCardData);
   // }
