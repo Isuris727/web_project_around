@@ -26,4 +26,4 @@ Fue realizado utilizando:
 
 ### Link de la página desplegada
 
-https://isuris727.github.io/web_project_around/
+https://isuris727.github.io/web_project_around/src/index.html

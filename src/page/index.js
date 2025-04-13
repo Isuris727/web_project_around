@@ -7,7 +7,11 @@ import FormValidator from "../../components/FormValidator.js";
 import PopupWithConfirmation from "../../components/PopupWithConfirmation.js";
 import UserInfo from "../../components/UserInfo.js";
 import Api from "../../components/Api.js";
-import { buttonEditProfile, buttonAddCard } from "../../components/utils.js";
+import {
+  buttonEditProfile,
+  buttonAddCard,
+  buttonEditAvatar,
+} from "../../components/utils.js";
 
 // ------- clases
 
@@ -32,6 +36,10 @@ const addCardPopup = new PopupWithForm(".elements__popup", () => {
   cardSection.addItem(createNewCard(infoNewCard));
 });
 
+const editAvatarPopup = new PopupWithForm(".profile__img-popup", () => {
+  console.log("cambiar imagen");
+});
+
 const confirmDeleteCardPopup = new PopupWithConfirmation(
   ".card__popup_type_confirm"
 );
@@ -50,6 +58,10 @@ buttonEditProfile.addEventListener("click", () => {
 });
 buttonAddCard.addEventListener("click", () => {
   addCardPopup.openPopup();
+});
+
+buttonEditAvatar.addEventListener("click", () => {
+  editAvatarPopup.openPopup();
 });
 
 const createNewCard = (data) => {
@@ -74,18 +86,25 @@ const cards = api.getCardsData().then(function (data) {
 //-----
 profilePopup.setEventListeners();
 addCardPopup.setEventListeners();
+editAvatarPopup.setEventListeners();
 confirmDeleteCardPopup.setEventListeners();
 
 //----
 const profileForm = document.forms.profileForm.elements;
 const addPlaceForm = document.forms.addPlaceForm.elements;
+const EditAvatarForm = document.forms.editAvatarForm.elements;
 
 //------- validaciones
 
 const validateProfileForm = new FormValidator(profileForm, ".profile__form");
 const validateAddPlaceForm = new FormValidator(addPlaceForm, ".elements__form");
+const validateEditAvatarForm = new FormValidator(
+  EditAvatarForm,
+  ".profile__form_edit_avatar"
+);
 
 validateProfileForm.enableValidation();
 validateAddPlaceForm.enableValidation();
+validateEditAvatarForm.enableValidation();
 
 // -------- pruebas
