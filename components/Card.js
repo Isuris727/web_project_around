@@ -18,7 +18,8 @@ export default class Card {
   }
 
   _deleteCard() {
-    this.card.remove();
+    // this.card.remove();
+    // es necesario cambiar la funcion a solo eliminar cuando el usuario confirme
   }
 
   _likeCard() {

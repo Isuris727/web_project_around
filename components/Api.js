@@ -17,6 +17,7 @@ export default class Api {
   getCardsData() {
     return this._fetchData("cards/");
   }
+
   getUserInfo() {
     return this._fetchData("users/me");
   }
@@ -24,4 +25,16 @@ export default class Api {
   updateUserInfo(newProfileInfo) {
     return this._fetchData("users/me", "PATCH", newProfileInfo);
   }
+
+  // addCardData(newCardData) {
+  //   return this._fetchData("cards", "POST", newCardData);
+  // }
+  // toggleLikeCard(cardID, card) {
+  //   // revisar si es necesario el parametro card [creo que no]
+  //   return this._fetchData(`cards/${cardID}/likes`, "PUT", card);
+  // }
+  // deleteCard(cardID, card) {
+  //   // revisar si es necesario el parametro card [creo que no]
+  //   return this._fetchData(`cards/${cardID}/likes`, "DELETE", card);
+  // }
 }

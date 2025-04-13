@@ -4,6 +4,7 @@ import Card from "../../components/Card.js";
 import PopupWithForm from "../../components/PopupWithForm.js";
 import PopupWithImage from "../../components/PopupWithImage.js";
 import FormValidator from "../../components/FormValidator.js";
+import PopupWithConfirmation from "../../components/PopupWithConfirmation.js";
 import UserInfo from "../../components/UserInfo.js";
 import Api from "../../components/Api.js";
 import { buttonEditProfile, buttonAddCard } from "../../components/utils.js";
@@ -20,8 +21,6 @@ const userInfo = new UserInfo({
 
 const userData = api.getUserInfo().then((data) => userInfo.getUserInfo(data));
 
-console.log(userData);
-
 const profilePopup = new PopupWithForm(".profile__popup", () => {
   const newProfileInfo = profilePopup._getInputValues();
   userInfo.setUserInfo(newProfileInfo);
@@ -32,6 +31,10 @@ const addCardPopup = new PopupWithForm(".elements__popup", () => {
   const infoNewCard = addCardPopup._getInputValues();
   cardSection.addItem(createNewCard(infoNewCard));
 });
+
+const confirmDeleteCardPopup = new PopupWithConfirmation(
+  ".card__popup_type_confirm"
+);
 
 // ------- Eventos y funciones
 
@@ -71,6 +74,7 @@ const cards = api.getCardsData().then(function (data) {
 //-----
 profilePopup.setEventListeners();
 addCardPopup.setEventListeners();
+confirmDeleteCardPopup.setEventListeners();
 
 //----
 const profileForm = document.forms.profileForm.elements;
@@ -85,6 +89,3 @@ validateProfileForm.enableValidation();
 validateAddPlaceForm.enableValidation();
 
 // -------- pruebas
-
-console.log(api.getUserInfo());
-// api.getUserInfo().then(UserInfo.setUserInfo);
