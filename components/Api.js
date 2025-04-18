@@ -30,15 +30,16 @@ export default class Api {
     return this._fetchData("users/me/avatar", "PATCH", newAvatarLink);
   }
 
-  // addCardData(newCardData) {
-  //   return this._fetchData("cards", "POST", newCardData);
-  // }
+  addCardData(newCardData) {
+    return this._fetchData("cards", "POST", newCardData);
+  }
+
   // toggleLikeCard(cardID, card) {
   //   // revisar si es necesario el parametro card [creo que no]
   //   return this._fetchData(`cards/${cardID}/likes`, "PUT", card);
   // }
-  // deleteCard(cardID, card) {
-  //   // revisar si es necesario el parametro card [creo que no]
-  //   return this._fetchData(`cards/${cardID}/likes`, "DELETE", card);
-  // }
+  deleteCard(cardID) {
+    // revisar si es necesario el parametro card [creo que no]
+    return this._fetchData(`cards/${cardID}`, "DELETE");
+  }
 }

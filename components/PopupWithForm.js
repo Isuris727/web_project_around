@@ -28,7 +28,7 @@ export default class PopupWithForm extends Popup {
     );
     return {
       name: this._formInputName.value,
-      about: this._formInputAbout.value,
+      link: this._formInputAbout.value,
     };
   }
 

@@ -13,17 +13,24 @@ import {
   buttonEditAvatar,
 } from "../../components/utils.js";
 
-// ------- clases
+//-----
 
 const api = new Api("https://around-api.es.tripleten-services.com/v1/");
+
+const userData = api.getUserInfo().then((data) => userInfo.getUserInfo(data));
+
+const addedCards = api.getCardsData().then(function (data) {
+  data.forEach((item) => {
+    cardSection.addItem(createNewCard(item));
+  });
+});
+// ------- clases
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
   profileAboutSelector: ".profile__about-me",
   profileAvatarSelector: ".profile__img",
 });
-
-const userData = api.getUserInfo().then((data) => userInfo.getUserInfo(data));
 
 const profilePopup = new PopupWithForm(".profile__popup", () => {
   const newProfileInfo = profilePopup._getInputValues();
@@ -33,6 +40,7 @@ const profilePopup = new PopupWithForm(".profile__popup", () => {
 
 const addCardPopup = new PopupWithForm(".elements__popup", () => {
   const infoNewCard = addCardPopup._getInputValues();
+  api.addCardData(infoNewCard);
   cardSection.addItem(createNewCard(infoNewCard));
 });
 
@@ -41,6 +49,20 @@ const editAvatarPopup = new PopupWithForm(".profile__img-popup", () => {
   userInfo.setProfileAvatar(newAvatarLink);
   api.changeAvatar(newAvatarLink);
 });
+
+const cardSection = new Section(
+  {
+    items: addedCards,
+    renderer: (item) => {
+      cardSection.addItem(createNewCard(item));
+    },
+  },
+  ".elements__cards"
+);
+
+const createNewCard = (data) => {
+  return new Card(data, ".elements__card-template").addCard();
+};
 
 const confirmDeleteCardPopup = new PopupWithConfirmation(
   ".card__popup_type_confirm"
@@ -55,6 +77,20 @@ document.addEventListener("click", (evt) => {
     imagePopup.setEventListeners();
   }
 });
+
+document.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("button_type_delete")) {
+    confirmDeleteCardPopup.openPopup();
+    confirmDeleteCardPopup.handleConfirmation(function () {
+      const cardToDelete = evt.target.closest(".card");
+      api.deleteCard(cardToDelete.id);
+      cardToDelete.remove();
+      console.log(cardToDelete);
+      confirmDeleteCardPopup.closePopup();
+    });
+  }
+});
+
 buttonEditProfile.addEventListener("click", () => {
   profilePopup.openPopup();
 });
@@ -66,26 +102,8 @@ buttonEditAvatar.addEventListener("click", () => {
   editAvatarPopup.openPopup();
 });
 
-const createNewCard = (data) => {
-  return new Card(data, ".elements__card-template").addCard();
-};
-
 // ------
 
-const cards = api.getCardsData().then(function (data) {
-  const cardSection = new Section(
-    {
-      items: data,
-      renderer: (item) => {
-        cardSection.addItem(createNewCard(item));
-      },
-    },
-    ".elements__cards"
-  );
-  cardSection.renderItems();
-});
-
-//-----
 profilePopup.setEventListeners();
 addCardPopup.setEventListeners();
 editAvatarPopup.setEventListeners();
