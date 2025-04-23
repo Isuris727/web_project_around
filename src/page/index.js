@@ -85,9 +85,17 @@ document.addEventListener("click", (evt) => {
       const cardToDelete = evt.target.closest(".card");
       api.deleteCard(cardToDelete.id);
       cardToDelete.remove();
-      console.log(cardToDelete);
       confirmDeleteCardPopup.closePopup();
     });
+  }
+});
+
+document.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("button_type_like")) {
+    const cardSelected = evt.target.closest(".card");
+    evt.target.classList.contains("button_type_like_active")
+      ? api.likeCard(cardSelected.id)
+      : api.dislikeCard(cardSelected.id);
   }
 });
 
@@ -128,3 +136,13 @@ validateAddPlaceForm.enableValidation();
 validateEditAvatarForm.enableValidation();
 
 // -------- pruebas
+
+const cards = api.getCardsData();
+
+console.log(cards);
+
+// console.log(
+//   api.getCardsData().then((data) => {
+//     Object.values(data);
+//   })
+// );

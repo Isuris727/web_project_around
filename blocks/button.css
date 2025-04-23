@@ -82,6 +82,14 @@
   margin-right: 18px;
 }
 
+.button_type_like_inactive {
+  background: url(./../images/nolike.png) center no-repeat;
+}
+
+.button_type_like_active {
+  background: url(./../images/like.png) center no-repeat;
+}
+
 /* .button_img{} */
 
 .button__img:hover {

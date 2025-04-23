@@ -34,12 +34,14 @@ export default class Api {
     return this._fetchData("cards", "POST", newCardData);
   }
 
-  // toggleLikeCard(cardID, card) {
-  //   // revisar si es necesario el parametro card [creo que no]
-  //   return this._fetchData(`cards/${cardID}/likes`, "PUT", card);
-  // }
+  likeCard(cardID) {
+    return this._fetchData(`cards/${cardID}/likes`, "PUT");
+  }
+  dislikeCard(cardID) {
+    return this._fetchData(`cards/${cardID}/likes`, "DELETE");
+  }
+
   deleteCard(cardID) {
-    // revisar si es necesario el parametro card [creo que no]
     return this._fetchData(`cards/${cardID}`, "DELETE");
   }
 }
