@@ -136,13 +136,3 @@ validateAddPlaceForm.enableValidation();
 validateEditAvatarForm.enableValidation();
 
 // -------- pruebas
-
-const cards = api.getCardsData();
-
-console.log(cards);
-
-// console.log(
-//   api.getCardsData().then((data) => {
-//     Object.values(data);
-//   })
-// );

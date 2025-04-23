@@ -11,7 +11,7 @@ export default class Api {
         "content-type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then((response) => (response.ok ? response.json() : response.reject()));
+    }).then((Response) => (Response.ok ? Response.json() : Response.reject));
   }
 
   getCardsData() {
