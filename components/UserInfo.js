@@ -20,7 +20,6 @@ export default class UserInfo {
   }
 
   setProfileAvatar(value) {
-    this._profileAvatar.src = value.link;
+    this._profileAvatar.src = value.avatar;
   }
-  //pendiente codear html, modal y lógica
 }

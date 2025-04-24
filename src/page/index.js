@@ -34,20 +34,26 @@ const userInfo = new UserInfo({
 
 const profilePopup = new PopupWithForm(".profile__popup", () => {
   const newProfileInfo = profilePopup._getInputValues();
+  api
+    .updateUserInfo(newProfileInfo)
+    .then((profilePopup._submitFormButton.textContent = "Guardando..."));
   userInfo.setUserInfo(newProfileInfo);
-  api.updateUserInfo(newProfileInfo);
 });
 
 const addCardPopup = new PopupWithForm(".elements__popup", () => {
   const infoNewCard = addCardPopup._getInputValues();
-  api.addCardData(infoNewCard);
+  api
+    .addCardData(infoNewCard)
+    .then((addCardPopup._submitFormButton.textContent = "Guardando..."));
   cardSection.addItem(createNewCard(infoNewCard));
 });
 
 const editAvatarPopup = new PopupWithForm(".profile__img-popup", () => {
   const newAvatarLink = editAvatarPopup._getSingleInputValue();
+  api
+    .changeAvatar(newAvatarLink)
+    .then((editAvatarPopup._submitFormButton.textContent = "Guardando..."));
   userInfo.setProfileAvatar(newAvatarLink);
-  api.changeAvatar(newAvatarLink);
 });
 
 const cardSection = new Section(
