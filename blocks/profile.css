@@ -12,11 +12,16 @@
   margin: 40px 0 50px;
 }
 
+.profile__overlay {
+  position: relative;
+}
+
 .profile__img {
   border-radius: 50%;
   height: 120px;
   width: 120px;
 }
+
 .profile__info {
   display: flex;
   flex-direction: column;

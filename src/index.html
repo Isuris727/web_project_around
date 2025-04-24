@@ -28,14 +28,17 @@
       <main class="main page__main">
         <section class="profile">
           <div class="profile__container">
-            <img
-              class="profile__img"
-              alt="Imagen de perfil"
-              src="./../images/Avatar.png"
-            />
+            <div class="profile__overlay">
+              <img
+                class="button__img button__img_type_overlay-edit"
+                alt="editar"
+                src="./../images/Vector_edit.png"
+              />
+              <img class="profile__img" alt="Imagen de perfil" src="" />
+            </div>
             <div class="profile__info">
               <div class="profile__title">
-                <h1 class="profile__name">Jacques Cousteau</h1>
+                <h1 class="profile__name"></h1>
                 <button class="button button_type_edit" type="button">
                   <img
                     class="button__img button__img_type_edit"
@@ -44,7 +47,7 @@
                   />
                 </button>
               </div>
-              <p class="profile__about-me">Explorador</p>
+              <p class="profile__about-me"></p>
             </div>
 
             <div class="profile__popup popup">
@@ -63,7 +66,7 @@
                     id="profile-name-input"
                     type="text"
                     placeholder="Nombre"
-                    value="Jacques Cousteau"
+                    value=""
                     required
                     minlength="2"
                     maxlength="40"
@@ -76,13 +79,46 @@
                     id="profile-about-input"
                     type="text"
                     placeholder="Acerca de mí"
-                    value="Explorador"
+                    value=""
                     required
                     minlength="2"
                     maxlength="200"
                   />
                   <span
                     class="profile-about-input-error form__input-error"
+                  ></span>
+                  <button
+                    class="button button_type_submit form__button"
+                    type="submit"
+                  >
+                    Guardar
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="profile__img-popup popup">
+              <div class="popup__container">
+                <button class="button button_type_close" type="button">
+                  <img
+                    class="button__img button__img_type_close"
+                    alt="Cerrar"
+                    src="./../images/Icon_close.png"
+                  />
+                </button>
+                <form
+                  class="profile__form profile__form_edit_avatar popup__form form"
+                  name="editAvatarForm"
+                >
+                  <h2 class="form__title">Cambiar foto de perfil</h2>
+                  <input
+                    class="form__input form__input_type_name"
+                    id="profile-image-input"
+                    type="url"
+                    placeholder="Enlace de la nueva imagen"
+                    required
+                  />
+                  <span
+                    class="profile-image-input-error form__input-error"
                   ></span>
                   <button
                     class="button button_type_submit form__button"
@@ -118,7 +154,7 @@
                   class="form__input form__input_type_name"
                   id="card-title-input"
                   type="text"
-                  placeholder="titulo"
+                  placeholder="Titulo"
                   required
                   minlength="2"
                   maxlength="30"
@@ -143,7 +179,7 @@
           </div>
           <div class="elements__cards"></div>
           <template class="elements__card-template" id="card-template">
-            <div class="elements__card card">
+            <div class="elements__card card" id="">
               <img
                 class="button button_type_delete"
                 alt="delete button"
@@ -151,11 +187,11 @@
               />
               <img class="card__img" alt="" src="" />
               <p class="card__name"></p>
-              <img
-                class="button button_type_like button_type_like_inactive"
+              <button
+                class="button button_type_like"
                 alt="Me gusta"
                 src="./../images/Vector_like_inactive.png"
-              />
+              ></button>
             </div>
           </template>
           <div class="card__popup popup">
@@ -169,6 +205,28 @@
               </button>
               <img class="popup__img" alt="" src="" />
               <p class="popup__card-name"></p>
+            </div>
+          </div>
+          <div class="card__popup_type_confirm popup">
+            <div class="popup__container">
+              <button class="button button_type_close" type="button">
+                <img
+                  class="button__img button__img_type_close"
+                  alt="Cerrar"
+                  src="./../images/Icon_close.png"
+                />
+              </button>
+              <div class="form form_type_confirm">
+                <h2 class="form__title">
+                  ¿Estas seguro de borrar esta imagen?
+                </h2>
+                <button
+                  class="button button_type_submit form__button"
+                  type="submit"
+                >
+                  Sí
+                </button>
+              </div>
             </div>
           </div>
         </section>

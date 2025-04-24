@@ -1,7 +1,9 @@
 export default class Card {
   constructor(cardData, templateSelector) {
-    this._src = cardData.src;
+    this._src = cardData.link;
     this._name = cardData.name;
+    this._id = cardData._id;
+    this.isLiked = cardData.isLiked;
     this._cardTemplate = document.querySelector(templateSelector);
     this.card = this._cardTemplate
       .cloneNode(true)
@@ -15,6 +17,7 @@ export default class Card {
     cardImg.src = this._src;
     cardImg.alt = this._name;
     cardName.textContent = this._name;
+    this.card.id = this._id;
   }
 
   _deleteCard() {
@@ -22,32 +25,24 @@ export default class Card {
   }
 
   _likeCard() {
-    if (this._buttonLikeCard.classList.contains("button_type_like_inactive")) {
-      this._buttonLikeCard.classList.remove("button_type_like_inactive");
-      this._buttonLikeCard.classList.add("button_type_like_active");
-      this._buttonLikeCard.src = "./../images/Vector_like_active.png";
-    } else {
-      this._buttonLikeCard.classList.add("button_type_like_inactive");
-      this._buttonLikeCard.classList.remove("button_type_like_active");
-      this._buttonLikeCard.src = "./../images/Vector_like_inactive.png";
-    }
+    this.isLiked = !this.isLiked;
+    this._buttonLikeCard.classList.toggle("button_type_like_inactive");
+    this._buttonLikeCard.classList.toggle("button_type_like_active");
   }
 
-  _setDeleteButtonCard() {
-    const buttonDeleteCard = this.card.querySelector(".button_type_delete");
-
-    buttonDeleteCard.addEventListener("click", () => {
-      const cardToDelete = buttonDeleteCard.closest(".card");
-      this._deleteCard(cardToDelete);
-    });
+  _likeCardState() {
+    this.isLiked
+      ? this._buttonLikeCard.classList.add("button_type_like_active")
+      : this._buttonLikeCard.classList.add("button_type_like_inactive");
   }
+
   _setLikeCardButton() {
     this._buttonLikeCard.addEventListener("click", () => this._likeCard());
   }
 
   addCard() {
     this._createCard();
-    this._setDeleteButtonCard();
+    this._likeCardState();
     this._setLikeCardButton();
     return this.card;
   }

@@ -10,6 +10,15 @@ export default class PopupWithForm extends Popup {
     );
   }
 
+  _getSingleInputValue() {
+    this._formInputName = this._popupForm.querySelector(
+      ".form__input_type_name"
+    );
+    return {
+      avatar: this._formInputName.value,
+    };
+  }
+
   _getInputValues() {
     this._formInputName = this._popupForm.querySelector(
       ".form__input_type_name"
@@ -19,7 +28,8 @@ export default class PopupWithForm extends Popup {
     );
     return {
       name: this._formInputName.value,
-      src: this._formInputAbout.value,
+      about: this._formInputAbout.value,
+      link: this._formInputAbout.value,
     };
   }
 
