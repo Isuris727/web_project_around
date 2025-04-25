@@ -20,7 +20,8 @@ const api = new Api("https://around-api.es.tripleten-services.com/v1/");
 const userData = api.getUserInfo().then((data) => userInfo.getUserInfo(data));
 
 const addedCards = api.getCardsData().then(function (data) {
-  data.forEach((item) => {
+  const dataOrdered = data.reverse();
+  dataOrdered.forEach((item) => {
     cardSection.addItem(createNewCard(item));
   });
 });
