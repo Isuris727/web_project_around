@@ -18,6 +18,7 @@ export default class Card {
     cardImg.alt = this._name;
     cardName.textContent = this._name;
     this.card.id = this._id;
+    console.log(this._id);
   }
 
   _deleteCard() {

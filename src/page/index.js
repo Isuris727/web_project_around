@@ -35,9 +35,7 @@ const userInfo = new UserInfo({
 
 const profilePopup = new PopupWithForm(".profile__popup", () => {
   const newProfileInfo = profilePopup._getInputValues();
-  api
-    .updateUserInfo(newProfileInfo)
-    .then((profilePopup._submitFormButton.textContent = "Guardando..."));
+  api.updateUserInfo(newProfileInfo);
   userInfo.setUserInfo(newProfileInfo);
 });
 
@@ -45,15 +43,12 @@ const addCardPopup = new PopupWithForm(".elements__popup", () => {
   const infoNewCard = addCardPopup._getInputValues();
   api
     .addCardData(infoNewCard)
-    .then((addCardPopup._submitFormButton.textContent = "Guardando..."));
-  cardSection.addItem(createNewCard(infoNewCard));
+    .then((data) => cardSection.addItem(createNewCard(data)));
 });
 
 const editAvatarPopup = new PopupWithForm(".profile__img-popup", () => {
   const newAvatarLink = editAvatarPopup._getSingleInputValue();
-  api
-    .changeAvatar(newAvatarLink)
-    .then((editAvatarPopup._submitFormButton.textContent = "Guardando..."));
+  api.changeAvatar(newAvatarLink);
   userInfo.setProfileAvatar(newAvatarLink);
 });
 
@@ -100,6 +95,7 @@ document.addEventListener("click", (evt) => {
 document.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("button_type_like")) {
     const cardSelected = evt.target.closest(".card");
+    console.log(cardSelected);
     evt.target.classList.contains("button_type_like_active")
       ? api.likeCard(cardSelected.id)
       : api.dislikeCard(cardSelected.id);
@@ -107,14 +103,14 @@ document.addEventListener("click", (evt) => {
 });
 
 buttonEditProfile.addEventListener("click", () => {
-  profilePopup.openPopup();
+  profilePopup.openPopup("Guardar");
 });
 buttonAddCard.addEventListener("click", () => {
-  addCardPopup.openPopup();
+  addCardPopup.openPopup("Crear");
 });
 
 buttonEditAvatar.addEventListener("click", () => {
-  editAvatarPopup.openPopup();
+  editAvatarPopup.openPopup("Guardar");
 });
 
 // ------

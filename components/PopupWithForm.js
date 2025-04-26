@@ -10,6 +10,11 @@ export default class PopupWithForm extends Popup {
     );
   }
 
+  openPopup(defaultButtonText) {
+    super.openPopup();
+    this._submitFormButton.textContent = defaultButtonText;
+  }
+
   _getSingleInputValue() {
     this._formInputName = this._popupForm.querySelector(
       ".form__input_type_name"
@@ -43,6 +48,7 @@ export default class PopupWithForm extends Popup {
 
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this._submitFormButton.textContent = "Guardando...";
       this._handleFormSubmit();
       this.closePopup();
     });
